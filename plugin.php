@@ -26,36 +26,71 @@ License:
   
 */
 
+if(!class_exists('TD_WebmasterUserRole')) {
 class TD_WebmasterUserRole {
-	
+
 	/*--------------------------------------------*
 	 * Constants
 	 *--------------------------------------------*/
 
 	const name = 'Webmaster User Role';
-	
+
 	const slug = 'td-webmaster-user-role';
-	 
+ 
 	/*--------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------*/
-	
+
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
 	function __construct() {
-	
+
 	    // Define constants used throughout the plugin
 	    $this->init_plugin_constants();
-  
+ 
 		load_plugin_textdomain( PLUGIN_LOCALE, false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
-		
+	
     	// Load JavaScript and stylesheets
     	// $this->register_scripts_and_styles();
 
 	} // end constructor
+
+	function activate($network_wide) {		
+		if($network_wide) {
+			$blogs = $this->_blogs();
+			foreach ( $blogs as $blog_id ) {
+				switch_to_blog( $blog_id );
+				$capabilities = $this->capabilities();
+				add_role('webmaster', 'Webmaster', $capabilities);
+				restore_current_blog();
+			}
+		
+		} else {
+			$capabilities = $this->capabilities();
+			add_role('webmaster', 'Webmaster', $capabilities);
+		}
+	}
+	function deactivate($network_wide) {
+		if($network_wide) {
+			$blogs = $this->_blogs();
+			foreach ( $blogs as $blog_id ) {
+				switch_to_blog( $blog_id );
+				remove_role('webmaster');
+				restore_current_blog();
+			}
+		
+		} else {
+			remove_role('webmaster');
+		}
+	}
 	
-	function activate() {
+	
+	/*--------------------------------------------*
+	 * Core Functions
+	 *---------------------------------------------*/
+	
+	function capabilities() {
 		$admin_role = get_role('administrator');
 		$capabilities = $admin_role->capabilities;
 		unset($capabilities['level_10']);
@@ -69,41 +104,52 @@ class TD_WebmasterUserRole {
 		unset($capabilities['switch_themes']);
 		unset($capabilities['edit_themes']);
 		unset($capabilities['delete_themes']);
-		
+	
 		/* Add Gravity Forms Capabilities */
 		$capabilities['gravityforms_view_entries'] = 1;
 		$capabilities['gravityforms_edit_forms'] = 1;
-		add_role('webmaster', 'Webmaster', $capabilities);
-	}
-	function deactivate() {
-		remove_role('webmaster');
+		
+		return $capabilities;
 	}
 	
-	/*--------------------------------------------*
-	 * Core Functions
-	 *---------------------------------------------*/
 	
-  
 	/*--------------------------------------------*
 	 * Private Functions
 	 *---------------------------------------------*/
-   
+	
+  		function _blogs() {
+		global $wpdb;
+		$blogs = $wpdb->get_col( $wpdb->prepare( "
+			SELECT blog_id
+			FROM {$wpdb->blogs}
+			WHERE site_id = %d
+			AND blog_id <> %d
+			AND spam = '0'
+			AND deleted = '0'
+			AND archived = '0'
+			ORDER BY registered DESC
+			LIMIT %d, 5
+		", $wpdb->siteid, $wpdb->blogid, $offset ) );
+		
+		return $blogs;
+	}
+
 	/**
 	 * Initializes constants used for convenience throughout 
 	 * the plugin.
 	 */
 	private function init_plugin_constants() {
-		
+	
 		if ( !defined( 'PLUGIN_NAME' ) ) {
 		  define( 'PLUGIN_NAME', self::name );
 		} // end if
-		
+	
 		if ( !defined( 'PLUGIN_SLUG' ) ) {
 		  define( 'PLUGIN_SLUG', self::slug );
 		} // end if
-	
+
 	} // end init_plugin_constants
-	
+
 	/**
 	 * Registers and enqueues stylesheets for the administration panel and the
 	 * public facing site.
@@ -117,7 +163,7 @@ class TD_WebmasterUserRole {
 			$this->load_file( self::slug . '-style', '/css/widget.css' );
 		} // end if/else
 	} // end register_scripts_and_styles
-	
+
 	/**
 	 * Helper function for registering and enqueueing scripts and styles.
 	 *
@@ -126,7 +172,7 @@ class TD_WebmasterUserRole {
 	 * @is_script		Optional argument for if the incoming file_path is a JavaScript source file.
 	 */
 	private function load_file( $name, $file_path, $is_script = false ) {
-		
+	
 		$url = plugins_url($file_path, __FILE__);
 		$file = plugin_dir_path(__FILE__) . $file_path;
 
@@ -139,11 +185,12 @@ class TD_WebmasterUserRole {
 				wp_enqueue_style( $name );
 			} // end if
 		} // end if
-    
+   
 	} // end load_file
-  
+ 
 } // end class
-$td_webmaster_user_role = new TD_WebmasterUserRole();
+} // end class_exists()
+if(!isset($td_webmaster_user_role)) $td_webmaster_user_role = new TD_WebmasterUserRole();
 register_activation_hook(__FILE__, array($td_webmaster_user_role, 'activate') );
 register_deactivation_hook( __FILE__, array($td_webmaster_user_role, 'deactivate') );
 
