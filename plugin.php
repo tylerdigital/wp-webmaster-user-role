@@ -69,6 +69,10 @@ class TD_WebmasterUserRole {
 		unset($capabilities['switch_themes']);
 		unset($capabilities['edit_themes']);
 		unset($capabilities['delete_themes']);
+		
+		/* Add Gravity Forms Capabilities */
+		$capabilities['gravityforms_view_entries'] = 1;
+		$capabilities['gravityforms_edit_forms'] = 1;
 		add_role('webmaster', 'Webmaster', $capabilities);
 	}
 	function deactivate() {
