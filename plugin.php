@@ -53,7 +53,7 @@ class TD_WebmasterUserRole {
 	
     	// Load JavaScript and stylesheets
     	// $this->register_scripts_and_styles();
-
+		add_action('wpmu_new_blog', array($this, 'add_role_to_blog'));
 	} // end constructor
 
 	function activate($network_wide) {		
@@ -110,6 +110,13 @@ class TD_WebmasterUserRole {
 		$capabilities['gravityforms_edit_forms'] = 1;
 		
 		return $capabilities;
+	}
+	
+	function add_role_to_blog($blog_id) {
+		switch_to_blog( $blog_id );
+		$capabilities = $this->capabilities();
+		add_role('webmaster', 'Webmaster', $capabilities);
+		restore_current_blog();
 	}
 	
 	
