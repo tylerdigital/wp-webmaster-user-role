@@ -62,13 +62,13 @@ class TD_WebmasterUserRole {
 			foreach ( $blogs as $blog_id ) {
 				switch_to_blog( $blog_id );
 				$capabilities = $this->capabilities();
-				add_role('webmaster', 'Webmaster', $capabilities);
+				add_role('webmaster', 'Admin', $capabilities);
 				restore_current_blog();
 			}
 		
 		} else {
 			$capabilities = $this->capabilities();
-			add_role('webmaster', 'Webmaster', $capabilities);
+			add_role('webmaster', 'Admin', $capabilities);
 		}
 	}
 	function deactivate($network_wide) {
@@ -115,7 +115,7 @@ class TD_WebmasterUserRole {
 	function add_role_to_blog($blog_id) {
 		switch_to_blog( $blog_id );
 		$capabilities = $this->capabilities();
-		add_role('webmaster', 'Webmaster', $capabilities);
+		add_role('webmaster', 'Admin', $capabilities);
 		restore_current_blog();
 	}
 	
