@@ -38,7 +38,7 @@ class TD_WebmasterUserRole {
 	const slug = 'td-webmaster-user-role';
 
 	private $default_options = array(
-		'role_name' => 'Admin',
+		'role_display_name' => 'Admin',
 	);
  
 	/*--------------------------------------------*
@@ -66,13 +66,13 @@ class TD_WebmasterUserRole {
 			foreach ( $blogs as $blog_id ) {
 				switch_to_blog( $blog_id );
 				$capabilities = $this->capabilities();
-				add_role('webmaster', 'Admin', $capabilities);
+				add_role('webmaster', $this->option('role_display_name'), $capabilities);
 				restore_current_blog();
 			}
 		
 		} else {
 			$capabilities = $this->capabilities();
-			add_role('webmaster', 'Admin', $capabilities);
+			add_role('webmaster', $this->option('role_display_name'), $capabilities);
 		}
 	}
 	function deactivate($network_wide) {
