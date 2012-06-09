@@ -39,8 +39,8 @@ class TD_WebmasterUserRole {
 
 	private $default_options = array(
 		'role_display_name' => 'Admin',
-		'gravityforms_view_entries' => 1,
-		'gravityforms_edit_forms' => 0,
+		'cap_gravityforms_view_entries' => 1,
+		'cap_gravityforms_edit_forms' => 0,
 	);
  
 	/*--------------------------------------------*
@@ -112,8 +112,8 @@ class TD_WebmasterUserRole {
 		unset($capabilities['delete_themes']);
 	
 		/* Add Gravity Forms Capabilities */
-		$capabilities['gravityforms_view_entries'] = $this->get_option('gravityforms_view_entries');
-		$capabilities['gravityforms_edit_forms'] = $this->get_option('gravityforms_edit_forms');
+		$capabilities['gravityforms_view_entries'] = $this->get_option('cap_gravityforms_view_entries');
+		$capabilities['gravityforms_edit_forms'] = $this->get_option('cap_gravityforms_edit_forms');
 		
 		return $capabilities;
 	}
