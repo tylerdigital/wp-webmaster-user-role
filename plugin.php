@@ -60,6 +60,8 @@ class TD_WebmasterUserRole {
     	// Load JavaScript and stylesheets
     	// $this->register_scripts_and_styles();
 		add_action('wpmu_new_blog', array($this, 'add_role_to_blog'));
+		add_action('updated_'.self::slug.'_option', array($this, 'updated_option'), 10, 3);
+		add_action('deleted_'.self::slug.'_option', array($this, 'deleted_option'));
 	} // end constructor
 
 	function activate($network_wide) {		
@@ -68,13 +70,13 @@ class TD_WebmasterUserRole {
 			foreach ( $blogs as $blog_id ) {
 				switch_to_blog( $blog_id );
 				$capabilities = $this->capabilities();
-				add_role('webmaster', $this->option('role_display_name'), $capabilities);
+				add_role('webmaster', $this->get_option('role_display_name'), $capabilities);
 				restore_current_blog();
 			}
 		
 		} else {
 			$capabilities = $this->capabilities();
-			add_role('webmaster', $this->option('role_display_name'), $capabilities);
+			add_role('webmaster', $this->get_option('role_display_name'), $capabilities);
 		}
 	}
 	function deactivate($network_wide) {
@@ -123,6 +125,20 @@ class TD_WebmasterUserRole {
 		$capabilities = $this->capabilities();
 		add_role('webmaster', 'Admin', $capabilities);
 		restore_current_blog();
+	}
+
+	function updated_option($option, $oldvalue, $newValue) {
+		if($option=='role_display_name' || strpos('cap_', $option)!==false) {
+			$this->deactivate(false);
+			$this->activate(false);
+		}
+	}
+
+	function deleted_option($option) {
+		if($option=='role_display_name' || strpos('cap_', $option)!==false) {
+			$this->deactivate(false);
+			$this->activate(false);
+		}
 	}
 
 	function get_option($option) {
