@@ -36,6 +36,10 @@ class TD_WebmasterUserRole {
 	const name = 'Webmaster User Role';
 
 	const slug = 'td-webmaster-user-role';
+
+	private $default_options = array(
+		'role_name' => 'Admin',
+	);
  
 	/*--------------------------------------------*
 	 * Constructor
@@ -118,6 +122,77 @@ class TD_WebmasterUserRole {
 		add_role('webmaster', 'Admin', $capabilities);
 		restore_current_blog();
 	}
+
+	function get_option($option) {
+		// Allow plugins to short-circuit options.
+		$pre = apply_filters( 'pre_'.self::slug.'_option_' . $option, false );
+		if ( false !== $pre )
+			return $pre;
+
+		$option = trim($option);
+		if ( empty($option) )
+			return false;
+
+		$saved_options = get_option(self::slug.'_options');
+
+		if ( isset( $saved_options[$option] ) ) {
+			$value = $saved_options[$option];
+		} else {
+			$saved_options = (empty($saved_options)) ? array() : $saved_options;
+			$saved_options = array_merge($this->default_options, $saved_options);
+			$value = $saved_options[$option];
+		}
+
+		return apply_filters( self::slug.'option_' . $option, $value );
+	}
+
+	function update_option($option, $newValue) {
+		$option = trim($option);
+		if ( empty($option) )
+			return false;
+
+		if ( is_object($newvalue) )
+			$newvalue = clone $newvalue;
+
+		$oldvalue = $this->get_option( $option );
+		$newvalue = apply_filters( 'pre_update_'.self::slug.'_option_' . $option, $newvalue, $oldvalue );
+
+		// If the new and old values are the same, no need to update.
+		if ( $newvalue === $oldvalue )
+			return false;
+
+		$_newvalue = $newvalue;
+		$newvalue = maybe_serialize( $newvalue );
+
+		do_action( 'update_'.self::slug.'_option', $option, $oldvalue, $_newvalue );
+
+		$options = get_option(self::slug.'_options');
+		if(empty($options)) $options = array($option => $newValue);
+		else $options[$option] = $newValue;
+		update_option(self::slug.'_options', $options);
+
+		do_action( "update_".self::slug."_option_{$option}", $oldvalue, $_newvalue );
+		do_action( 'updated_'.self::slug.'_option', $option, $oldvalue, $_newvalue );
+
+		return true;
+	}
+
+	function delete_option($option) {
+		do_action( 'delete_'.self::slug.'_option', $option );
+		$options = get_option(self::slug.'_options');
+		if(!isset($options[$option])) return false;
+		unset($options[$option]);
+		
+		$result = update_option(self::slug.'_options', $options);
+
+		if($result) {
+			do_action( "delete_".self::slug."_option_$option", $option );
+			do_action( 'deleted_'.self::slug.'_option', $option );
+			return true;
+		}
+		return false;
+	}
+
 	
 	
 	/*--------------------------------------------*
