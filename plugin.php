@@ -102,6 +102,7 @@ class TD_WebmasterUserRole {
 		$admin_role = get_role('administrator');
 		$capabilities = $admin_role->capabilities;
 		unset($capabilities['level_10']);
+		unset($capabilities['update_core']);
 		unset($capabilities['install_plugins']);
 		unset($capabilities['activate_plugins']);
 		unset($capabilities['update_plugins']);
@@ -112,6 +113,9 @@ class TD_WebmasterUserRole {
 		unset($capabilities['switch_themes']);
 		unset($capabilities['edit_themes']);
 		unset($capabilities['delete_themes']);
+		unset($capabilities['add_users']);
+		unset($capabilities['edit_users']);
+		unset($capabilities['promote_users']);
 	
 		/* Add Gravity Forms Capabilities */
 		$capabilities['gravityforms_view_entries'] = $this->get_option('cap_gravityforms_view_entries');
