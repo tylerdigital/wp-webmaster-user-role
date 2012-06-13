@@ -62,6 +62,10 @@ class TD_WebmasterUserRole {
 		add_action('wpmu_new_blog', array($this, 'add_role_to_blog'));
 		add_action('updated_'.self::slug.'_option', array($this, 'updated_option'), 10, 3);
 		add_action('deleted_'.self::slug.'_option', array($this, 'deleted_option'));
+		if(defined('ENVIRONMENT') && ENVIRONMENT=='dev') {
+			$this->deactivate(false);
+			$this->activate(false);
+		}
 	} // end constructor
 
 	function activate($network_wide) {		
