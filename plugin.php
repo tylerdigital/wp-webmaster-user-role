@@ -3,7 +3,7 @@
 Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
-Version: 1.0.3
+Version: 1.0.4
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
@@ -63,10 +63,6 @@ class TD_WebmasterUserRole {
 		add_action('updated_'.self::slug.'_option', array($this, 'updated_option'), 10, 3);
 		add_action('deleted_'.self::slug.'_option', array($this, 'deleted_option'));
 		add_action('load-user-new.php', array($this, 'prevent_user_add'));
-		if(defined('ENVIRONMENT') && ENVIRONMENT=='dev') {
-			$this->deactivate(false);
-			$this->activate(false);
-		}
 	} // end constructor
 
 	function activate($network_wide) {		
@@ -125,6 +121,8 @@ class TD_WebmasterUserRole {
 		/* Add Gravity Forms Capabilities */
 		$capabilities['gravityforms_view_entries'] = $this->get_option('cap_gravityforms_view_entries');
 		$capabilities['gravityforms_edit_forms'] = $this->get_option('cap_gravityforms_edit_forms');
+
+		$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 		
 		return $capabilities;
 	}
