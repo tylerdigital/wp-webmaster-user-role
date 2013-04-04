@@ -1,8 +1,8 @@
 === Webmaster User Role ===
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 1.5
-Tested up to: 3.3.2
-Stable tag: 1.0.3
+Tested up to: 3.5.1
+Stable tag: 1.0.4
 
 Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
 
@@ -17,6 +17,9 @@ Adds a Webmaster user role between Administrator and Editor.  By default this us
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v1.0.4
+* Add "editor" cap for role so plugins checking for "editor" explicitly work
+
 = v1.0.3
 * Remove capabiilty to add, edit, promote users
 * Remove capability to update core
