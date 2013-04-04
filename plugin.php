@@ -120,7 +120,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			/* Add Gravity Forms Capabilities */
 			$capabilities['gravityforms_view_entries'] = $this->get_option( 'cap_gravityforms_view_entries' );
-			$capabilities['gravityforms_edit_forms'] = $this->get_option( 'cap_gravityforms_edit_forms' );
 
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 
