@@ -3,7 +3,7 @@
 Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
-Version: 1.0.4
+Version: 1.0.5
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
@@ -37,6 +37,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		const slug = 'td-webmaster-user-role';
 
+		const version = '1.0.5';
+
 		private $default_options = array(
 			'role_display_name' => 'Admin',
 			'cap_gravityforms_view_entries' => 1,
@@ -63,6 +65,12 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
 			add_action( 'load-user-new.php', array( $this, 'prevent_user_add' ) );
+			$site_version = get_site_option( 'td-webmaster-user-role-version' );
+			if( $site_version!=self::version ) {
+				$this->deactivate( false );
+				$this->activate( false );
+				update_site_option( 'td-webmaster-user-role-version', self::version );
+			}
 		} // end constructor
 
 		function activate( $network_wide ) {
@@ -116,6 +124,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['delete_themes'] );
 			unset( $capabilities['add_users'] );
 			unset( $capabilities['edit_users'] );
+			unset( $capabilities['delete_users'] );
 			unset( $capabilities['promote_users'] );
 
 			/* Add Gravity Forms Capabilities */
