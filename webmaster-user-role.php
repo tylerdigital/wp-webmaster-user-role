@@ -3,7 +3,7 @@
 Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
-Version: 1.0.5
+Version: 1.0.6
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
@@ -37,7 +37,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		const slug = 'td-webmaster-user-role';
 
-		const version = '1.0.5';
+		const version = '1.0.6';
 
 		private $default_options = array(
 			'role_display_name' => 'Admin',
@@ -65,6 +65,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
 			add_action( 'load-user-new.php', array( $this, 'prevent_user_add' ) );
+			add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
 			if( $site_version!=self::version ) {
 				$this->deactivate( false );
@@ -133,6 +134,10 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 
 			return $capabilities;
+		}
+
+		function admin_menu() {
+			remove_menu_page('options-general.php');
 		}
 
 		function add_role_to_blog( $blog_id ) {
