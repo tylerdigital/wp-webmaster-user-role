@@ -3,7 +3,7 @@
 Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
-Version: 1.0.6
+Version: 1.0.7
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
@@ -137,7 +137,9 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 		}
 
 		function admin_menu() {
-			remove_menu_page('options-general.php');
+			if ( current_user_can( 'webmaster' ) ) {
+				remove_menu_page('options-general.php');
+			}
 		}
 
 		function add_role_to_blog( $blog_id ) {
