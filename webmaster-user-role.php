@@ -37,7 +37,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		const slug = 'td-webmaster-user-role';
 
-		const version = '1.0.6';
+		const version = '1.0.7';
 
 		private $default_options = array(
 			'role_display_name' => 'Admin',
