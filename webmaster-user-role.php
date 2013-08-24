@@ -65,7 +65,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
 			add_action( 'load-user-new.php', array( $this, 'prevent_user_add' ) );
-			add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+			add_action( 'admin_menu', array( &$this, 'admin_menu' ), 999 );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
 			if( $site_version!=self::version ) {
 				$this->deactivate( false );
@@ -139,7 +139,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		function admin_menu() {
 			if ( current_user_can( 'webmaster' ) ) {
-				remove_menu_page('options-general.php');
+				remove_menu_page( 'options-general.php' );
+				remove_menu_page( 'branding' );
 			}
 		}
 

@@ -13,6 +13,7 @@ Adds a Webmaster user role between Administrator and Editor.  By default this us
 3rd party plugin compatibility:
 
 - Gravity Forms (user can view form entries but not edit them or create new ones)
+- Ultimate Branding (by WPMU Dev) - hide branding menu
 
 == Installation ==
 Install and activate, there are no settings in the UI
