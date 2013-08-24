@@ -3,7 +3,7 @@ Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 
 Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
 
@@ -19,6 +19,9 @@ Adds a Webmaster user role between Administrator and Editor.  By default this us
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v1.0.9
+* Add support for Ultimate Branding 3rd party plugin
+
 = v1.0.8
 * Add Gravity Forms edit_forms capability as an option (only allows entry viewing by default) via filter:
 add_filter( 'td-webmaster-user-roleoption_cap_gravityforms_edit_forms', __return_true );
