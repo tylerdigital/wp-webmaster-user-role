@@ -8,26 +8,24 @@ Stable tag: 1.1
 Adds a Webmaster user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
 == Description ==
-<p>This plugin creates a new role named "Admin" that is the same as "Administrator" with the following changes:</p>
+This plugin creates a new role named "Admin" that is the same as "Administrator" with the following changes:
 
-<h4>In WP-Admin:</h4>
-<ul>
-	<li>Hide / Remove Settings menu</li>
-	<li>Hide / Remove Plugins menu</li>
-	<li>Hide / Remove Tools menu</li>
-	<li>Disable theme installation</li>
-	<li>Disable theme switching</li>
-	<li>Hide / Remove Appearance > Editor</li>
-	<li>Disable WP core updates</li>
-	<li>Disable capability to add/delete/edit users</li>
-</ul>
-<h4>3rd party plugin compatibility:</h4>
-<ul>
-	<li>Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones</li>
-	<li>Ultimate Branding (WPMU Dev) - hide branding menu</li>
-	<li>Sucuri Scanner (Sucuri) - hide security scan information</li>
-	<li>Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields</li>
-</ul>
+= In WP-Admin =
+* Hide / Remove Settings menu
+* Hide / Remove Plugins menu
+* Hide / Remove Tools menu
+* Disable theme installation
+* Disable theme switching
+* Hide / Remove Appearance > Editor
+* Disable WP core updates
+* Disable capability to add users
+
+= 3rd party plugin compatibility =
+
+* Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
+* Ultimate Branding (WPMU Dev) - hide branding menu
+* Sucuri Scanner (Sucuri) - hide security scan information
+* Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
 
 == Installation ==
 Install and activate, there are no settings in the UI
