@@ -18,7 +18,7 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Disable theme switching
 * Hide / Remove Appearance > Editor
 * Disable WP core updates
-* Disable capability to add users
+* Disable capability to add/edit/delete users
 
 = 3rd party plugin compatibility =
 
