@@ -142,6 +142,9 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			if ( current_user_can( 'webmaster' ) ) {
 				remove_menu_page( 'options-general.php' );
 				remove_menu_page( 'branding' );
+				remove_menu_page( 'sucuriscan' );
+				remove_menu_page( 'tools.php' );
+				remove_menu_page( 'edit.php?post_type=acf' );
 			}
 		}
 
