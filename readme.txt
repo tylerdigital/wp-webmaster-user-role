@@ -5,10 +5,20 @@ Requires at least: 3.5
 Tested up to: 3.6
 Stable tag: 1.1
 
-Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
+Adds a Webmaster user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
 == Description ==
-Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes.
+This plugin creates a new role named "Admin" that is the same as "Administrator" with the following changes:
+
+In WP-Admin:
+- Hide / Remove Settings menu
+- Hide / Remove Plugins menu
+- Hide / Remove Tools menu
+- Disable theme installation
+- Disable theme switching
+- Hide / Remove Appearance > Editor
+- Disable WP core updates
+- Disable capability to add/delete/edit users
 
 3rd party plugin compatibility:
 
