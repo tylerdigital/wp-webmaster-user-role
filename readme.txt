@@ -5,7 +5,7 @@ Requires at least: 3.5
 Tested up to: 3.6
 Stable tag: 1.1
 
-Adds a Webmaster user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
+Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
 == Description ==
 This plugin creates a new role named "Admin" that is the same as "Administrator" with the following changes:
