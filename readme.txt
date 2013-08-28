@@ -3,7 +3,7 @@ Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.0.9
+Stable tag: 1.1
 
 Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
 
@@ -12,15 +12,22 @@ Adds a Webmaster user role between Administrator and Editor.  By default this us
 
 3rd party plugin compatibility:
 
-- Gravity Forms (user can view form entries but not edit them or create new ones)
-- Ultimate Branding (by WPMU Dev) - hide branding menu
+- Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
+- Ultimate Branding (WPMU Dev) - hide branding menu
+- Sucuri Scanner (Sucuri) - hide security scan information
+- Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
 
 == Installation ==
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v1.1
+* Add support for Sucuri Scanner [http://wordpress.org/plugins/sucuri-scanner/]
+* Add support for Advanced Custom Fields [http://wordpress.org/plugins/advanced-custom-fields/]
+* Remove tools menu – so webmaster users can't import/export/migrate/find&replace
+
 = v1.0.9
-* Add support for Ultimate Branding 3rd party plugin
+* Add support for Ultimate Branding [http://premium.wpmudev.org/project/ultimate-branding/]
 
 = v1.0.8
 * Add Gravity Forms edit_forms capability as an option (only allows entry viewing by default) via filter:
