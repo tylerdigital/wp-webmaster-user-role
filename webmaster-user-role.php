@@ -54,10 +54,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 		 */
 		function __construct() {
 
-			// Define constants used throughout the plugin
-			$this->init_plugin_constants();
-
-			load_plugin_textdomain( PLUGIN_LOCALE, false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+			load_plugin_textdomain( 'td-webmaster-user-role', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 			// Load JavaScript and stylesheets
 			// $this->register_scripts_and_styles();
@@ -277,22 +274,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			return $blogs;
 		}
-
-		/**
-		 * Initializes constants used for convenience throughout
-		 * the plugin.
-		 */
-		private function init_plugin_constants() {
-
-			if ( !defined( 'PLUGIN_NAME' ) ) {
-				define( 'PLUGIN_NAME', self::name );
-			} // end if
-
-			if ( !defined( 'PLUGIN_SLUG' ) ) {
-				define( 'PLUGIN_SLUG', self::slug );
-			} // end if
-
-		} // end init_plugin_constants
 
 		/**
 		 * Registers and enqueues stylesheets for the administration panel and the
