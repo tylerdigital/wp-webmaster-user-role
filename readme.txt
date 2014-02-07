@@ -23,10 +23,14 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 
 = 3rd party plugin compatibility =
 
-* Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
-* Ultimate Branding (WPMU Dev) - hide branding menu
-* Sucuri Scanner (Sucuri) - hide security scan information
 * Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
+* Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
+* Sucuri Scanner (Sucuri) - hide security scan information
+* Ultimate Branding (WPMU Dev) - hide branding menu
+
+== Screenshots ==
+
+1. Plugin adds a role to fit nicely between Administrator and Editor
 
 == Installation ==
 Install and activate, there are no settings in the UI
