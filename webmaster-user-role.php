@@ -70,7 +70,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				$this->activate( false );
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
-			include( 'includes/prst.php' );
 		} // end constructor
 
 		function activate( $network_wide ) {
