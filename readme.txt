@@ -2,8 +2,8 @@
 Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.1.1
+Tested up to: 3.8.1
+Stable tag: 1.2
 
 Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
@@ -36,6 +36,10 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v 1.2 =
+* Multisite bugfix: Prevent webmaster from removing users from individual sites
+* Multisite bugfix: Stop removing Settings & Tools from network administrator
+
 = v1.1.1 =
 * Now hides non-essential dashboard items
 * Fixes a conflict with Mizzo theme (thanks djesch)
