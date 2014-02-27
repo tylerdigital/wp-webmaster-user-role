@@ -3,7 +3,7 @@
 Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
-Version: 1.2
+Version: 1.21
 Author: Tyler Digital
 Author URI: http://tylerdigital.com
 Author Email: support@tylerdigital.com
@@ -37,7 +37,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		const slug = 'td-webmaster-user-role';
 
-		const version = '1.2';
+		const version = '1.21';
 
 		private $default_options = array(
 			'role_display_name' => 'Admin',
@@ -135,6 +135,15 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			/* Add Gravity Forms Capabilities */
 			$capabilities['gravityforms_view_entries'] = $this->get_option( 'cap_gravityforms_view_entries' );
 			$capabilities['gravityforms_edit_forms'] = $this->get_option( 'cap_gravityforms_edit_forms' );
+
+			/* Add TablePress Capabilities */
+			$capabilities['tablepress_list_tables'] = 1;
+			$capabilities['tablepress_add_tables'] = 1;
+			$capabilities['tablepress_edit_tables'] = 1;
+			$capabilities['tablepress_import_tables'] = 1;
+			$capabilities['tablepress_export_tables'] = 1;
+			$capabilities['tablepress_access_about_screen'] = 1;
+			$capabilities['tablepress_access_options_screen'] = 0;
 
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 

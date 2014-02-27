@@ -3,7 +3,7 @@ Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.2
+Stable tag: 1.21
 
 Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
@@ -26,6 +26,7 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
 * Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
 * Sucuri Scanner (Sucuri) - hide security scan information
+* TablePress - Show/Edit/Import/Export TablePress content (all tabs except plugin options)
 * Ultimate Branding (WPMU Dev) - hide branding menu
 
 == Screenshots ==
