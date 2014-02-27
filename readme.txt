@@ -37,6 +37,9 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v 1.21 =
+* Add support for TablePress [http://wordpress.org/plugins/tablepress/]
+
 = v 1.2 =
 * Multisite bugfix: Prevent webmaster from removing users from individual sites
 * Multisite bugfix: Stop removing Settings & Tools from network administrator
