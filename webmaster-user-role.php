@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Webmaster User Role
+Plugin Name: Webmaster User Role Pro
 Plugin URI: http://tylerdigital.com
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
 Version: 1.21
@@ -25,7 +25,6 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
-
 if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 	class TD_WebmasterUserRole {
 
@@ -44,6 +43,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			'cap_gravityforms_view_entries' => 1,
 			'cap_gravityforms_edit_forms' => 0,
 		);
+
+		private $pro;
 
 		/*--------------------------------------------*
 	 * Constructor
@@ -70,6 +71,9 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				$this->activate( false );
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
+
+			require_once( dirname( __FILE__ ). '/includes/pro.php' );
+			$this->pro = new TD_WebmasterUserRolePro( $this );
 		} // end constructor
 
 		function activate( $network_wide ) {
