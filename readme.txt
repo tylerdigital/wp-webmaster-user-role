@@ -31,7 +31,8 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 
 == Screenshots ==
 
-1. Plugin adds a role to fit nicely between Administrator and Editor
+1. Adds a role to fit nicely between Administrator and Editor
+2. Easily remove administrative menu items, while leaving content-related items like Menus and Wigets
 
 == Installation ==
 Install and activate, there are no settings in the UI
