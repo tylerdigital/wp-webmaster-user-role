@@ -24,7 +24,7 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 = 3rd party plugin compatibility =
 
 * Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
-* Gravity Forms (RocketGenius) - user can view form entries but not edit them or create new ones
+* Gravity Forms (RocketGenius) - user can view form entries but not edit forms or create new ones
 * Sucuri Scanner (Sucuri) - hide security scan information
 * TablePress - Show/Edit/Import/Export TablePress content (all tabs except plugin options)
 * Ultimate Branding (WPMU Dev) - hide branding menu
