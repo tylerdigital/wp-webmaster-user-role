@@ -5,9 +5,9 @@ if ( !class_exists( 'TD_WebmasterUserRolePro' ) ) {
 			if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( dirname( __FILE__ ) ) . '/lib/redux/ReduxCore/framework.php' ) ) {
 				require_once( dirname( dirname( __FILE__ ) ) . '/lib/redux/ReduxCore/framework.php' );
 			}
-			// if ( !isset( $redux_demo ) && file_exists( dirname( dirname( __FILE__ ) ) . '/lib/redux/sample/sample-config.php' ) ) {
-			// 	require_once( dirname( dirname( __FILE__ ) ) . '/lib/redux/sample/sample-config.php' );
-			// }
+			if ( !isset( $redux_demo ) && file_exists( dirname( dirname( __FILE__ ) ) . '/lib/redux/sample/sample-config.php' ) ) {
+				require_once( dirname( dirname( __FILE__ ) ) . '/lib/redux/sample/sample-config.php' );
+			}
 		}
 	}
 }
