@@ -61,7 +61,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'wpmu_new_blog', array( $this, 'add_role_to_blog' ) );
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
-			add_action( 'load-user-new.php', array( $this, 'prevent_user_add' ) );
 			add_action( 'admin_menu', array( &$this, 'admin_menu' ), 999 );
 			add_action( 'admin_init', array( &$this, 'cleanup_dashboard_widgets' ), 20 );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
@@ -177,10 +176,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			$capabilities = $this->capabilities();
 			add_role( 'webmaster', 'Admin', $capabilities );
 			restore_current_blog();
-		}
-
-		function prevent_user_add() {
-			if ( !current_user_can( 'add_users' ) ) wp_redirect( admin_url(), $status = 302 );
 		}
 
 		function updated_option( $option, $oldvalue, $newValue ) {
