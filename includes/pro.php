@@ -282,7 +282,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 					array(
 						'id'        => 'webmaster_caps_themes',
 						'type'      => 'checkbox',
-						'title'     => __('Plugins', 'redux-framework-demo'),
+						'title'     => __('Themes', 'redux-framework-demo'),
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 						'options'   => array(
