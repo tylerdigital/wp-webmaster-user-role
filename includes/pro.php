@@ -2,9 +2,21 @@
 if ( !class_exists( 'TD_WebmasterUserRolePro' ) ) {
 	class TD_WebmasterUserRolePro {
 		public $config;
+		public $parent;
 
 		function __construct( $parent ) {
+			$this->parent = $parent;
+			add_action( 'admin_init', array( $this, 'update_caps' ) );
+		}
 
+		function update_caps() { 
+			global $webmaster_user_role_config;
+			$last_caps_update = get_site_option( 'td-webmaster-last-caps-update' );
+			if( $last_caps_update != $webmaster_user_role_config['REDUX_last_saved'] ) {
+				$this->parent->deactivate( false );
+				$this->parent->activate( false );
+				update_site_option( 'td-webmaster-last-caps-update', $webmaster_user_role_config['REDUX_last_saved'] );
+			}
 		}
 	}
 }
@@ -245,7 +257,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				'title'     => __('Core Capabilities', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
-						'id'        => 'opt-multi-check',
+						'id'        => 'webmaster_caps_plugins',
 						'type'      => 'checkbox',
 						'title'     => __('Plugins', 'redux-framework-demo'),
 						'subtitle'  => __('Webmaster user can', 'redux-framework-demo'),

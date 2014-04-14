@@ -151,6 +151,13 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 
+			global $webmaster_user_role_config;
+			foreach ($webmaster_user_role_config as $config_key => $config_value) {
+				if ( strpos( $config_key, 'webmaster_cap') !== false && is_array( $config_value ) ) {
+					$capabilities = wp_parse_args( $config_value, $capabilities );
+				}
+			}
+
 			return $capabilities;
 		}
 
