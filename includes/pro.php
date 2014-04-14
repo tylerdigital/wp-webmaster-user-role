@@ -254,7 +254,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 			$this->sections[] = array(
 				'icon'      => 'el-icon-cogs',
-				'title'     => __('Core Capabilities', 'webmaster-user-role'),
+				'title'     => __('Plugin Capabilities', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
 						'id'        => 'webmaster_caps_plugins',
@@ -279,6 +279,13 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						)
 					),
 
+				)
+			);
+
+			$this->sections[] = array(
+				'icon'      => 'el-icon-cogs',
+				'title'     => __('Theme Capabilities', 'webmaster-user-role'),
+				'fields'    => array(
 					array(
 						'id'        => 'webmaster_caps_themes',
 						'type'      => 'checkbox',
@@ -294,16 +301,43 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						),
 						
 						'default'   => array(
-							'install_plugins' => '0',
-							'activate_plugins' => '0',
-							'update_plugins' => '0',
-							'edit_plugins' => '0',
-							'delete_plugins' => '0',
+							'install_themes' => '0',
+							'update_themes' => '0',
+							'switch_themes' => '0',
+							'edit_themes' => '0',
+							'delete_themes' => '0',
 						)
 					),
 
 				)
 			);
+
+			$this->sections[] = array(
+				'icon'      => 'el-icon-cogs',
+				'title'     => __('User Capabilities', 'webmaster-user-role'),
+				'fields'    => array(
+					array(
+						'id'        => 'webmaster_caps_users',
+						'type'      => 'checkbox',
+						'title'     => __('Users', 'redux-framework-demo'),
+						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+						'options'   => array(
+							'add_users' => 'Install Users',
+							'edit_users' => 'Edit Users',
+							'delete_users' => 'Delete Users',
+						),
+						
+						'default'   => array(
+							'add_users' => '0',
+							'edit_users' => '0',
+							'delete_users' => '0',
+						)
+					),
+
+				)
+			);
+
 
 		}
 
