@@ -126,6 +126,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['switch_themes'] );
 			unset( $capabilities['edit_themes'] );
 			unset( $capabilities['delete_themes'] );
+			unset( $capabilities['create_users'] );
 			unset( $capabilities['add_users'] );
 			unset( $capabilities['edit_users'] );
 			unset( $capabilities['delete_users'] );
