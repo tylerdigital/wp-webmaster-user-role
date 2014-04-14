@@ -260,9 +260,8 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						'id'        => 'webmaster_caps_plugins',
 						'type'      => 'checkbox',
 						'title'     => __('Plugins', 'redux-framework-demo'),
-						'subtitle'  => __('Webmaster user can', 'redux-framework-demo'),
+						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 						
-						//Must provide key => value pairs for multi checkbox options
 						'options'   => array(
 							'install_plugins' => 'Install Plugins',
 							'activate_plugins' => 'Activate Plugins',
@@ -271,7 +270,6 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 							'delete_plugins' => 'Delete Plugins',
 						),
 						
-						//See how std has changed? you also don't need to specify opts that are 0.
 						'default'   => array(
 							'install_plugins' => '0',
 							'activate_plugins' => '0',
@@ -280,6 +278,30 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 							'delete_plugins' => '0',
 						)
 					),
+
+					array(
+						'id'        => 'webmaster_caps_themes',
+						'type'      => 'checkbox',
+						'title'     => __('Plugins', 'redux-framework-demo'),
+						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+						'options'   => array(
+							'install_themes' => 'Install Themes',
+							'update_themes' => 'Activate Themes',
+							'switch_themes' => 'Update Themes',
+							'edit_themes' => 'Edit Themes',
+							'delete_themes' => 'Delete Themes',
+						),
+						
+						'default'   => array(
+							'install_plugins' => '0',
+							'activate_plugins' => '0',
+							'update_plugins' => '0',
+							'edit_plugins' => '0',
+							'delete_plugins' => '0',
+						)
+					),
+
 				)
 			);
 
