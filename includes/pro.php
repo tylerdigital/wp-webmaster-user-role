@@ -323,13 +323,13 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 						'options'   => array(
-							'add_users' => 'Install Users',
+							'create_users' => 'Add Users',
 							'edit_users' => 'Edit Users',
 							'delete_users' => 'Delete Users',
 						),
 						
 						'default'   => array(
-							'add_users' => '0',
+							'create_users' => '0',
 							'edit_users' => '0',
 							'delete_users' => '0',
 						)
