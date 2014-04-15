@@ -264,9 +264,9 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						
 						'options'   => array(
 							'install_plugins' => 'Install Plugins',
-							'activate_plugins' => 'Activate Plugins',
+							'activate_plugins' => 'Activate/Deactivate Plugins',
 							'update_plugins' => 'Update Plugins',
-							'edit_plugins' => 'Edit Plugins',
+							'edit_plugins' => 'Edit Plugins (Plugins > Editor menu item)',
 							'delete_plugins' => 'Delete Plugins',
 						),
 						
@@ -294,8 +294,8 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 						'options'   => array(
 							'install_themes' => 'Install Themes',
-							'update_themes' => 'Activate Themes',
-							'switch_themes' => 'Update Themes',
+							'update_themes' => 'Update Themes',
+							'switch_themes' => 'Switch Active Theme',
 							'edit_themes' => 'Edit Themes',
 							'delete_themes' => 'Delete Themes',
 						),
@@ -323,7 +323,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 						'options'   => array(
-							'create_users' => 'Add Users',
+							'create_users' => 'Create Users',
 							'edit_users' => 'Edit Users',
 							'delete_users' => 'Delete Users',
 						),
