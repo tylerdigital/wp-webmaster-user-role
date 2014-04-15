@@ -376,6 +376,88 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 			}
 
+			if ( class_exists( 'GFForms' ) ) {
+
+				$this->sections[] = array(
+					'icon'      => 'el-icon-cogs',
+					'title'     => __('Gravity Forms', 'webmaster-user-role'),
+					'fields'    => array(
+						array(
+							'id'        => 'webmaster_caps_gravityforms_forms',
+							'type'      => 'checkbox',
+							'title'     => __('Managing Forms', 'redux-framework-demo'),
+							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+							'options'   => array(
+								'gravityforms_create_form' => 'Create Forms',
+								'gravityforms_edit_forms' => 'Edit Forms',
+								'gravityforms_delete_forms' => 'Delete Forms',
+								'gravityforms_preview_forms' => 'Preview Forms',
+							),
+							
+							'default'   => array(
+								'gravityforms_create_form' => '0',
+								'gravityforms_edit_forms' => '1',
+								'gravityforms_delete_forms' => '0',
+								'gravityforms_preview_forms' => '0',
+							)
+						),
+
+						array(
+							'id'        => 'webmaster_caps_gravityforms_entries',
+							'type'      => 'checkbox',
+							'title'     => __('Managing Entries (Form Submissions/Data)', 'redux-framework-demo'),
+							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+							'options'   => array(
+								'gravityforms_view_entries' => 'View Form Entries',
+								'gravityforms_view_entry_note' => 'View Internal Notes on Form Entries',
+								'gravityforms_edit_entries' => 'Edit Form Entries',
+								'gravityforms_edit_entry_note' => 'Edit Internal Notes on Form Entries',
+								'gravityforms_delete_entries' => 'Delete Form Entries',
+								'gravityforms_export_entries' => 'Export Form Entries',
+							),
+							
+							'default'   => array(
+								'gravityforms_view_entries' => '1',
+								'gravityforms_view_entry_note' => '0',
+								'gravityforms_edit_entries' => '0',
+								'gravityforms_edit_entry_note' => '0',
+								'gravityforms_delete_entries' => '0',
+								'gravityforms_export_entries' => '0',
+							)
+						),
+
+
+						array(
+							'id'        => 'webmaster_caps_gravityforms_advanced',
+							'type'      => 'checkbox',
+							'title'     => __('Advanced Features', 'redux-framework-demo'),
+							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+							'options'   => array(
+								'gravityforms_view_settings' => 'View Settings',
+								'gravityforms_edit_settings' => 'Edit Settings',
+								'gravityforms_uninstall' => 'Uninstall Gravity Forms',
+								'gravityforms_view_updates' => 'Show when updates are available',
+								'gravityforms_view_addons' => 'Show Add-Ons Available/Installed (User also needs capability to install plugins)',
+							),
+							
+							'default'   => array(
+								'gravityforms_view_settings' => '0',
+								'gravityforms_edit_settings' => '0',
+								'gravityforms_uninstall' => '0',
+								'gravityforms_view_updates' => '0',
+								'gravityforms_view_addons' => '0',
+							)
+						),
+
+
+					)
+				);
+
+			}
+
 		}
 
 		public function setHelpTabs() {
