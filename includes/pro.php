@@ -254,12 +254,12 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 			$this->sections[] = array(
 				'icon'      => 'el-icon-cogs',
-				'title'     => __('Plugin Capabilities', 'webmaster-user-role'),
+				'title'     => __('Plugins', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
 						'id'        => 'webmaster_caps_plugins',
 						'type'      => 'checkbox',
-						'title'     => __('Plugins', 'redux-framework-demo'),
+						'title'     => __('Plugin Capabilities', 'redux-framework-demo'),
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 						
 						'options'   => array(
@@ -284,12 +284,12 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 			$this->sections[] = array(
 				'icon'      => 'el-icon-cogs',
-				'title'     => __('Theme Capabilities', 'webmaster-user-role'),
+				'title'     => __('Themes', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
 						'id'        => 'webmaster_caps_themes',
 						'type'      => 'checkbox',
-						'title'     => __('Themes', 'redux-framework-demo'),
+						'title'     => __('Theme Capabilities', 'redux-framework-demo'),
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 						'options'   => array(
@@ -314,12 +314,12 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 			$this->sections[] = array(
 				'icon'      => 'el-icon-cogs',
-				'title'     => __('User Capabilities', 'webmaster-user-role'),
+				'title'     => __('Users', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
 						'id'        => 'webmaster_caps_users',
 						'type'      => 'checkbox',
-						'title'     => __('Users', 'redux-framework-demo'),
+						'title'     => __('User Capabilities', 'redux-framework-demo'),
 						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 						'options'   => array(
@@ -338,6 +338,43 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				)
 			);
 
+			if ( class_exists( 'TablePress' ) ) {
+
+				$this->sections[] = array(
+					'icon'      => 'el-icon-cogs',
+					'title'     => __('TablePress', 'webmaster-user-role'),
+					'fields'    => array(
+						array(
+							'id'        => 'webmaster_caps_tablepress',
+							'type'      => 'checkbox',
+							'title'     => __('TablePres Capabilities', 'redux-framework-demo'),
+							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+							'options'   => array(
+								'tablepress_list_tables' => 'List Tables',
+								'tablepress_add_tables' => 'Add New Tables',
+								'tablepress_edit_tables' => 'Edit Existing Tables',
+								'tablepress_import_tables' => 'Import Tables',
+								'tablepress_export_tables' => 'Export Tables',
+								'tablepress_access_about_screen' => 'Access TablePress About Screen',
+								'tablepress_access_options_screen' => 'Access TablePress Options Screen',
+							),
+							
+							'default'   => array(
+								'tablepress_list_tables' => '1',
+								'tablepress_add_tables' => '1',
+								'tablepress_edit_tables' => '1',
+								'tablepress_import_tables' => '1',
+								'tablepress_export_tables' => '1',
+								'tablepress_access_about_screen' => '1',
+								'tablepress_access_options_screen' => '0',
+							)
+						),
+
+					)
+				);
+
+			}
 
 		}
 
