@@ -430,7 +430,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				// OPTIONAL -> Give you extra features
 				'page_priority'     => null,                    // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
 				'page_parent'       => 'options-general.php',            // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
-				'page_permissions'  => 'manage_options',        // Permissions needed to access the options panel.
+				'page_permissions'  => 'administrator',        // Permissions needed to access the options panel.
 				'menu_icon'         => '',                      // Specify a custom URL to an icon
 				'last_tab'          => '',                      // Force your panel to always open to a specific tab (by id)
 				'page_icon'         => 'icon-themes',           // Icon displayed in the admin panel next to your menu_title
