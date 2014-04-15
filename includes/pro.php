@@ -347,7 +347,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 						array(
 							'id'        => 'webmaster_caps_tablepress',
 							'type'      => 'checkbox',
-							'title'     => __('TablePres Capabilities', 'redux-framework-demo'),
+							'title'     => __('TablePress Capabilities', 'redux-framework-demo'),
 							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 							'options'   => array(
