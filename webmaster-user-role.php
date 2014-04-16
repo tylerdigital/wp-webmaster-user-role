@@ -174,11 +174,12 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		function admin_menu() {
 			if ( $this->current_user_is_webmaster() ) {
-				remove_menu_page( 'options-general.php' );
+				global $webmaster_user_role_config;
 				remove_menu_page( 'branding' );
-				remove_menu_page( 'sucuriscan' );
-				remove_menu_page( 'tools.php' );
-				remove_menu_page( 'edit.php?post_type=acf' );
+				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['options-general.php'] ) ) remove_menu_page( 'options-general.php' );
+				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_sucuri']['sucuriscan'] ) ) remove_menu_page( 'sucuriscan' );
+				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['tools.php'] ) ) remove_menu_page( 'tools.php' );
+				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_acf']['acf'] ) ) remove_menu_page( 'edit.php?post_type=acf' );
 			}
 		}
 
