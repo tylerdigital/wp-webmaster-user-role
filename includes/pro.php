@@ -362,43 +362,9 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				)
 			);
 
-			if ( class_exists( 'TablePress' ) ) {
-
-				$this->sections[] = array(
-					'icon'      => 'el-icon-cogs',
-					'title'     => __('TablePress', 'webmaster-user-role'),
-					'fields'    => array(
-						array(
-							'id'        => 'webmaster_caps_tablepress',
-							'type'      => 'checkbox',
-							'title'     => __('TablePress Capabilities', 'redux-framework-demo'),
-							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
-
-							'options'   => array(
-								'tablepress_list_tables' => 'List Tables',
-								'tablepress_add_tables' => 'Add New Tables',
-								'tablepress_edit_tables' => 'Edit Existing Tables',
-								'tablepress_import_tables' => 'Import Tables',
-								'tablepress_export_tables' => 'Export Tables',
-								'tablepress_access_about_screen' => 'Access TablePress About Screen',
-								'tablepress_access_options_screen' => 'Access TablePress Options Screen',
-							),
-							
-							'default'   => array(
-								'tablepress_list_tables' => '1',
-								'tablepress_add_tables' => '1',
-								'tablepress_edit_tables' => '1',
-								'tablepress_import_tables' => '1',
-								'tablepress_export_tables' => '1',
-								'tablepress_access_about_screen' => '1',
-								'tablepress_access_options_screen' => '0',
-							)
-						),
-
-					)
-				);
-
-			}
+			$this->sections[] = array(
+				'type' => 'divide',
+			);
 
 			if ( class_exists( 'GFForms' ) ) {
 
@@ -476,6 +442,43 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 							)
 						),
 
+					)
+				);
+
+			}
+
+			if ( class_exists( 'TablePress' ) ) {
+
+				$this->sections[] = array(
+					'icon'      => 'el-icon-cogs',
+					'title'     => __('TablePress', 'webmaster-user-role'),
+					'fields'    => array(
+						array(
+							'id'        => 'webmaster_caps_tablepress',
+							'type'      => 'checkbox',
+							'title'     => __('TablePress Capabilities', 'redux-framework-demo'),
+							'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+
+							'options'   => array(
+								'tablepress_list_tables' => 'List Tables',
+								'tablepress_add_tables' => 'Add New Tables',
+								'tablepress_edit_tables' => 'Edit Existing Tables',
+								'tablepress_import_tables' => 'Import Tables',
+								'tablepress_export_tables' => 'Export Tables',
+								'tablepress_access_about_screen' => 'Access TablePress About Screen',
+								'tablepress_access_options_screen' => 'Access TablePress Options Screen',
+							),
+							
+							'default'   => array(
+								'tablepress_list_tables' => '1',
+								'tablepress_add_tables' => '1',
+								'tablepress_edit_tables' => '1',
+								'tablepress_import_tables' => '1',
+								'tablepress_export_tables' => '1',
+								'tablepress_access_about_screen' => '1',
+								'tablepress_access_options_screen' => '0',
+							)
+						),
 
 					)
 				);
