@@ -338,6 +338,30 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				)
 			);
 
+			$this->sections[] = array(
+				'icon'      => 'el-icon-cogs',
+				'title'     => __('Tools & Settings', 'webmaster-user-role'),
+				'fields'    => array(
+					array(
+						'id'        => 'webmaster_admin_menu_tools_settings',
+						'type'      => 'checkbox',
+						'title'     => __('Visible in Menu', 'redux-framework-demo'),
+						'subtitle'  => __('Webmaster users can view', 'redux-framework-demo'),
+						
+						'options'   => array(
+							'tools.php' => 'Tools Menu',
+							'options-general.php' => 'Settings Menu',
+						),
+						
+						'default'   => array(
+							'tools.php' => '0',
+							'options-general.php' => '0',
+						)
+					),
+
+				)
+			);
+
 			if ( class_exists( 'TablePress' ) ) {
 
 				$this->sections[] = array(
