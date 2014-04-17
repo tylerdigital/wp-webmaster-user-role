@@ -253,7 +253,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			// ACTUAL DECLARATION OF SECTIONS
 
 			$this->sections[] = array(
-				'icon'      => 'el-icon-cogs',
+				'icon'      => 'wp-menu-image plugins',
 				'title'     => __('Plugins', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
@@ -283,7 +283,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			);
 
 			$this->sections[] = array(
-				'icon'      => 'el-icon-cogs',
+				'icon'      => 'wp-menu-image themes',
 				'title'     => __('Themes', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
@@ -313,7 +313,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			);
 
 			$this->sections[] = array(
-				'icon'      => 'el-icon-cogs',
+				'icon'      => 'wp-menu-image users',
 				'title'     => __('Users', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
@@ -339,7 +339,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			);
 
 			$this->sections[] = array(
-				'icon'      => 'el-icon-cogs',
+				'icon'      => 'wp-menu-image tools',
 				'title'     => __('Tools & Settings', 'webmaster-user-role'),
 				'fields'    => array(
 					array(
@@ -369,7 +369,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			if ( class_exists( 'GFForms' ) ) {
 
 				$this->sections[] = array(
-					'icon'      => 'el-icon-cogs',
+					'icon'      => 'wp-menu-image dashicons dashicons-list-view',
 					'title'     => __('Gravity Forms', 'webmaster-user-role'),
 					'fields'    => array(
 						array(
@@ -450,7 +450,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			if ( class_exists( 'TablePress' ) ) {
 
 				$this->sections[] = array(
-					'icon'      => 'el-icon-cogs',
+					'icon'      => 'wp-menu-image dashicons dashicons-list-view',
 					'title'     => __('TablePress', 'webmaster-user-role'),
 					'fields'    => array(
 						array(

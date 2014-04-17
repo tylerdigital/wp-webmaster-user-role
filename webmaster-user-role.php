@@ -58,7 +58,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			load_plugin_textdomain( 'td-webmaster-user-role', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 			// Load JavaScript and stylesheets
-			// $this->register_scripts_and_styles();
+			$this->register_scripts_and_styles();
 			add_action( 'wpmu_new_blog', array( $this, 'add_role_to_blog' ) );
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
@@ -303,11 +303,11 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 		 */
 		private function register_scripts_and_styles() {
 			if ( is_admin() ) {
-				$this->load_file( self::slug . '-admin-script', '/js/admin.js', true );
+				// $this->load_file( self::slug . '-admin-script', '/js/admin.js', true );
 				$this->load_file( self::slug . '-admin-style', '/css/admin.css' );
 			} else {
-				$this->load_file( self::slug . '-script', '/js/widget.js', true );
-				$this->load_file( self::slug . '-style', '/css/widget.css' );
+				// $this->load_file( self::slug . '-script', '/js/widget.js', true );
+				// $this->load_file( self::slug . '-style', '/css/widget.css' );
 			} // end if/else
 		} // end register_scripts_and_styles
 

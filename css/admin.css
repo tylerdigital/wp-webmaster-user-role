@@ -1,1 +1,21 @@
 /* This stylesheet is used to style the admin option form of the widget. */
+.redux-container .wp-menu-image:before {
+  font: 400 20px/1 dashicons;
+  speak: none;
+  color: #999;
+  padding: 8px 0;
+  height: 36px;
+  width: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-transition: all .1s ease-in-out;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out; }
+.redux-container .wp-menu-image.plugins:before {
+  content: '\f106'; }
+.redux-container .wp-menu-image.themes:before {
+  content: '\f100'; }
+.redux-container .wp-menu-image.users:before {
+  content: '\f110'; }
+.redux-container .wp-menu-image.tools:before {
+  content: '\f107'; }
