@@ -145,7 +145,55 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			$capabilities['tablepress_access_about_screen'] = 1;
 			$capabilities['tablepress_access_options_screen'] = 0;
 
+			/* Add WooCommerce Capabilities */
+			$woo_caps = $this->get_woocommerce_capabilities();
+			foreach ( $woo_caps as $woo_cap_key => $woo_cap_array ) {
+				foreach ($woo_cap_array as $key => $woo_cap) {
+					$capabilities[$woo_cap] = 1;
+				}
+			}
+			// $capabilities['manage_woocommerce'] = 0;
+
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
+
+			return $capabilities;
+		}
+
+		public function get_woocommerce_capabilities() {
+			$capabilities = array();
+
+			$capabilities['core'] = array(
+				'manage_woocommerce',
+				'view_woocommerce_reports'
+			);
+
+			$capability_types = array( 'product', 'shop_order', 'shop_coupon' );
+
+			foreach ( $capability_types as $capability_type ) {
+
+				$capabilities[ $capability_type ] = array(
+					// Post type
+					"edit_{$capability_type}",
+					"read_{$capability_type}",
+					"delete_{$capability_type}",
+					"edit_{$capability_type}s",
+					"edit_others_{$capability_type}s",
+					"publish_{$capability_type}s",
+					"read_private_{$capability_type}s",
+					"delete_{$capability_type}s",
+					"delete_private_{$capability_type}s",
+					"delete_published_{$capability_type}s",
+					"delete_others_{$capability_type}s",
+					"edit_private_{$capability_type}s",
+					"edit_published_{$capability_type}s",
+
+					// Terms
+					"manage_{$capability_type}_terms",
+					"edit_{$capability_type}_terms",
+					"delete_{$capability_type}_terms",
+					"assign_{$capability_type}_terms"
+				);
+			}
 
 			return $capabilities;
 		}
