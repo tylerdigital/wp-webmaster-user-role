@@ -131,6 +131,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['delete_users'] );
 			unset( $capabilities['remove_users'] );
 			unset( $capabilities['promote_users'] );
+			unset( $capabilities['manage_options'] );
 
 			/* Add Gravity Forms Capabilities */
 			$capabilities['gravityforms_view_entries'] = $this->get_option( 'cap_gravityforms_view_entries' );
