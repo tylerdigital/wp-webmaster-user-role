@@ -135,6 +135,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['delete_users'] );
 			unset( $capabilities['remove_users'] );
 			unset( $capabilities['promote_users'] );
+			unset( $capabilities['manage_options'] );
 
 			/* Add Gravity Forms Capabilities */
 			$capabilities['gravityforms_view_entries'] = $this->get_option( 'cap_gravityforms_view_entries' );
@@ -166,6 +167,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 					$capabilities = wp_parse_args( $config_value, $capabilities );
 				}
 			}
+			if ( !empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['options-general.php'] ) ) $capabilities['manage_options'] = 1;
 
 			return $capabilities;
 		}
