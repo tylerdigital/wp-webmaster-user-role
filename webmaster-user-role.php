@@ -131,7 +131,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['delete_users'] );
 			unset( $capabilities['remove_users'] );
 			unset( $capabilities['promote_users'] );
-			unset( $capabilities['manage_options'] );
 
 			/* Add Gravity Forms Capabilities */
 			$capabilities['gravityforms_view_entries'] = $this->get_option( 'cap_gravityforms_view_entries' );
@@ -343,8 +342,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				$this->load_file( self::slug . '-admin-script', '/js/admin.js', true );
 				$this->load_file( self::slug . '-admin-style', '/css/admin.css' );
 			} else {
-				$this->load_file( self::slug . '-script', '/js/widget.js', true );
-				$this->load_file( self::slug . '-style', '/css/widget.css' );
+				// $this->load_file( self::slug . '-script', '/js/widget.js', true );
+				// $this->load_file( self::slug . '-style', '/css/widget.css' );
 			} // end if/else
 		} // end register_scripts_and_styles
 
