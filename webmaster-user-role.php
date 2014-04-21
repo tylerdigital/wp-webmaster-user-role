@@ -69,6 +69,9 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				$this->activate( false );
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
+
+			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
+			new TDWUR_Yoast( $this );
 		} // end constructor
 
 		function activate( $network_wide ) {
