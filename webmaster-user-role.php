@@ -105,7 +105,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 	 * Core Functions
 	 *---------------------------------------------*/
 
-		function current_user_is_webmaster() {
+		public static function current_user_is_webmaster() {
 			if ( is_super_admin() ) return false;
 			return current_user_can( 'webmaster' );
 		}
