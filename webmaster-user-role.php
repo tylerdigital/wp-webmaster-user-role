@@ -73,6 +73,9 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			require_once( dirname( __FILE__ ). '/includes/pro.php' );
 			$this->pro = new TD_WebmasterUserRolePro( $this );
+
+			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
+			new TDWUR_Yoast( $this );
 		} // end constructor
 
 		function activate( $network_wide ) {
