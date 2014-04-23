@@ -71,6 +71,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			}
 
 			/* Load Modules */
+			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
+			new TDWUR_Cf7( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-itsec.php' );
 			new TDWUR_Itsec( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
