@@ -49,7 +49,11 @@ class TDWUR_Cf7 {
 	}
 
 	function wpcf7_map_meta_cap( $meta_caps ) {
+		/* Prevent infinite loop triggered by current_user_can('webmaster') */
+		remove_filter( 'wpcf7_map_meta_cap', array( $this, 'wpcf7_map_meta_cap' ) );
+
 		if ( empty( $this->section['fields']['0']['default'] ) ) return $meta_caps;
+		if ( !TD_WebmasterUserRole::current_user_is_webmaster() ) return $meta_caps;
 		global $webmaster_user_role_config;
 		if ( !isset( $webmaster_user_role_config['webmaster_caps_cf7'] ) ) return $meta_caps;
 		if ( !$this->is_active() ) return $meta_caps;
