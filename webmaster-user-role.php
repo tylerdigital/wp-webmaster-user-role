@@ -173,6 +173,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				}
 			}
 
+			$capabilities = apply_filters( 'td_webmaster_capabilities', $capabilities );
 			return $capabilities;
 		}
 
