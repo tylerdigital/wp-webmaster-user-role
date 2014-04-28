@@ -21,6 +21,45 @@ if ( !class_exists( 'TD_WebmasterUserRolePro' ) ) {
 	}
 }
 
+/* Disable Redux Tracking */
+if ( !class_exists( 'Redux_Tracking' ) ) {
+	/**
+	 * Class Redux_Tracking
+	 */
+	class Redux_Tracking {
+        public $options = array();
+        public $parent;
+        /** Refers to a single instance of this class. */
+        private static $instance = null;
+
+        /**
+         * Creates or returns an instance of this class.
+         *
+         * @return  Foo A single instance of this class.
+         */
+        public static function get_instance() {
+     
+            if ( null == self::$instance ) {
+                self::$instance = new self;
+            }
+     
+            return self::$instance;
+     
+        } // end get_instance;        
+		/**
+		 * Class constructor
+		 * @param ReduxFramework $parent
+		 */
+		function __construct() {
+
+        }
+        public function load( $parent ) {
+            $this->parent = $parent;
+            //delete_option('redux-framework-tracking');
+        }
+    }
+}
+
 if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 
 	class Redux_Webmaster_User_Role_Config {
