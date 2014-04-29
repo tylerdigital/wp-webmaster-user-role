@@ -38,6 +38,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		const version = '1.21';
 
+		const file = __FILE__;
+
 		private $default_options = array(
 			'role_display_name' => 'Admin',
 			'cap_gravityforms_view_entries' => 1,
