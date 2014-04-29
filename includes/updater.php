@@ -41,7 +41,6 @@ class TD_WebmasterUserRoleUpdater {
 	function plugin_updater() {
 		global $webmaster_user_role_config;
 		$license_key = trim($webmaster_user_role_config['license_key']);
-		echo '<pre>'.print_r($license_key, true).'</pre>';
 		$edd_updater = new EDD_SL_Plugin_Updater( self::edd_store_url, TD_WebmasterUserRole::file, array( 
 				'version' 	=> TD_WebmasterUserRole::version, 				// current version number
 				'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
