@@ -75,6 +75,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			require_once( dirname( __FILE__ ). '/includes/pro.php' );
 			$this->pro = new TD_WebmasterUserRolePro( $this );
+			require_once( dirname( __FILE__ ). '/includes/updater.php' );
+			new TD_WebmasterUserRoleUpdater( $this );
 
 			/* Load Modules */
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
