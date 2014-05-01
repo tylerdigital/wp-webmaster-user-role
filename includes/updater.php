@@ -19,9 +19,19 @@ class TD_WebmasterUserRoleUpdater {
 
 		add_filter( 'redux/options/webmaster_user_role_config/sections', array( $this, 'settings_section' ), 100 );
 		add_action( 'admin_init', array( $this, 'plugin_updater') );
+		add_action( 'redux/options/webmaster_user_role_config/validate', array( $this, 'activate_license' ), 10, 2 );
 	}
 
 	function settings_section( $sections ) {
+		$license_key_status = get_option( 'td_wur_license_key_status' );
+		if ( empty( $license_key_status ) ) {
+			$license_key_status_html = '<p class="notice-yellow">Please enter your license key to get updates. Or <a href="http://tylerdigital.com/download/webmaster-user-role/">click here to purchase or renew a license</a></p>';
+		} elseif ( $license_key_status == 'valid' ) {
+			$license_key_status_html = '<p class="notice-green">Valid license</p>';
+		} elseif ( $license_key_status == 'invalid' ) {
+			$license_key_status_html = '<p class="notice-red">Invalid license. Please verify the license key, you may need to <a href="http://tylerdigital.com/download/webmaster-user-role/" target="_blank">renew your license</a> or <a href="mailto:support@tylerdigital.com">contact support</a></p>';
+		}
+
 		$sections[] = $this->section = array(
 			'icon'      => '',
 			'title'     => __('Licensing & Updates', 'webmaster-user-role'),
@@ -32,6 +42,11 @@ class TD_WebmasterUserRoleUpdater {
 					'title'     => __('License Key', 'redux-framework-demo'),
 					'subtitle'  => __('Enables access to updates', 'redux-framework-demo'),
 				),
+                array(
+                    'id'        => 'license_key_is_valid',
+                    'type'      => 'raw',
+                    'content'   => $license_key_status_html,
+                )
 			)
 		);
 
@@ -48,6 +63,37 @@ class TD_WebmasterUserRoleUpdater {
 				'author' 	=> 'Tyler Digital'  // author of this plugin
 			)
 		);
+	}
+
+	function activate_license( $new_options, $previous_options ) {
+		if ( $new_options['license_key'] == $previous_options['license_key'] ) return;
+
+		$license_key = trim($new_options['license_key']);
+		if ( empty( $license_key ) ) {
+			delete_option( 'td_wur_license_key_status' );
+			return;
+		}
+
+		// data to send in our API request
+		$api_params = array( 
+			'edd_action'=> 'activate_license', 
+			'license' 	=> $license_key, 
+			'item_name' => urlencode( TD_WebmasterUserRole::name ) // the name of our product in EDD
+		);
+		
+		// Call the custom API.
+		$response = wp_remote_get( add_query_arg( $api_params, TD_WebmasterUserRoleUpdater::edd_store_url ), array( 'timeout' => 15, 'sslverify' => false ) );
+
+		// make sure the response came back okay
+		if ( is_wp_error( $response ) )
+			return false;
+
+		// decode the license data
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+		
+		// $license_data->license will be either "active" or "inactive"
+
+		update_option( 'td_wur_license_key_status', $license_data->license );
 	}
 
 }
