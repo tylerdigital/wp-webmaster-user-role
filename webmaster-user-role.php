@@ -65,6 +65,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
 			add_action( 'admin_menu', array( &$this, 'admin_menu' ), 999 );
+			add_action( 'admin_init', array( &$this, 'create_role_if_missing' ), 10 );
 			add_action( 'admin_init', array( &$this, 'cleanup_dashboard_widgets' ), 20 );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
 			if( $site_version!=self::version ) {
@@ -141,6 +142,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['switch_themes'] );
 			unset( $capabilities['edit_themes'] );
 			unset( $capabilities['delete_themes'] );
+			unset( $capabilities['list_users'] );
 			unset( $capabilities['create_users'] );
 			unset( $capabilities['add_users'] );
 			unset( $capabilities['edit_users'] );
@@ -222,6 +224,14 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			}
 
 			return $capabilities;
+		}
+
+		function create_role_if_missing() {
+			$wp_roles = new WP_Roles();
+			if ( $wp_roles->is_role( 'webmaster' ) ) return;
+
+			$this->deactivate( false );
+			$this->activate( false );
 		}
 
 		function cleanup_dashboard_widgets() {
