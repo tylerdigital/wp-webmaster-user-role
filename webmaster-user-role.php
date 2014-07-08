@@ -253,6 +253,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_sucuri']['sucuriscan'] ) ) remove_menu_page( 'sucuriscan' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['tools.php'] ) ) remove_menu_page( 'tools.php' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_acf']['acf'] ) ) remove_menu_page( 'edit.php?post_type=acf' );
+				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_acf']['acf'] ) ) remove_menu_page( 'edit.php?post_type=acf-field-group' );
 			}
 		}
 
