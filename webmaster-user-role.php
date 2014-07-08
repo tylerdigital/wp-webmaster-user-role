@@ -133,6 +133,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			unset( $capabilities['switch_themes'] );
 			unset( $capabilities['edit_themes'] );
 			unset( $capabilities['delete_themes'] );
+			unset( $capabilities['list_users'] );
 			unset( $capabilities['create_users'] );
 			unset( $capabilities['add_users'] );
 			unset( $capabilities['edit_users'] );
@@ -220,7 +221,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		function admin_menu() {
 			if ( $this->current_user_is_webmaster() ) {
-				remove_menu_page( 'users.php' );
 				remove_menu_page( 'options-general.php' );
 				remove_menu_page( 'branding' );
 				remove_menu_page( 'sucuriscan' );
