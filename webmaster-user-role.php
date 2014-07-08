@@ -235,6 +235,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				remove_menu_page( 'sucuriscan' );
 				remove_menu_page( 'tools.php' );
 				remove_menu_page( 'edit.php?post_type=acf' );
+				remove_menu_page( 'edit.php?post_type=acf-field-group' );
 			}
 		}
 
