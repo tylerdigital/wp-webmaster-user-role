@@ -2,8 +2,8 @@
 Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 1.21
+Tested up to: 3.9.1
+Stable tag: 1.3
 
 Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
@@ -14,20 +14,23 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Hide / Remove Settings menu
 * Hide / Remove Plugins menu
 * Hide / Remove Tools menu
+* Hide / Remove Users menu
 * Disable theme installation
 * Disable theme switching
 * Hide / Remove Appearance > Editor
 * Disable WP core updates
-* Disable capability to add/edit/delete users
 * Hide non-essential dashboard items
 
 = 3rd party plugin compatibility =
 
 * Advanced Custom Fields (Elliot Condon) - hide ACF menu, only admins/developers should be modifying ACF definitions/rules/fields
+* Contact Form 7 - user can only read contact form submissions
 * Gravity Forms (RocketGenius) - user can view form entries but not edit forms or create new ones
+* iThemes Security - hide iThemes security menus
 * Sucuri Scanner (Sucuri) - hide security scan information
 * TablePress - Show/Edit/Import/Export TablePress content (all tabs except plugin options)
 * Ultimate Branding (WPMU Dev) - hide branding menu
+* Yoast SEO - hide Yoast SEO menu & metabox when editing pages/posts
 
 == Screenshots ==
 
@@ -38,6 +41,12 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v 1.3 =
+* Hide Users menu (often requested, and really the webmaster user couldn't do much in this screen anyway)
+* Add support for ACF5 (hide Custom Fields Menu compatible with new version)
+* Add support for Contact Form 7
+* Add support for iThemes Security
+
 = v 1.21 =
 * Add support for TablePress [http://wordpress.org/plugins/tablepress/]
 
