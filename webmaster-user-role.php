@@ -220,6 +220,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		function admin_menu() {
 			if ( $this->current_user_is_webmaster() ) {
+				remove_menu_page( 'users.php' );
 				remove_menu_page( 'options-general.php' );
 				remove_menu_page( 'branding' );
 				remove_menu_page( 'sucuriscan' );
