@@ -2,8 +2,8 @@
 Contributors: tylerdigital, croixhaug
 Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.3
+Tested up to: 3.9.2
+Stable tag: 1.3.1
 
 Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
@@ -30,7 +30,7 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Sucuri Scanner (Sucuri) - hide security scan information
 * TablePress - Show/Edit/Import/Export TablePress content (all tabs except plugin options)
 * Ultimate Branding (WPMU Dev) - hide branding menu
-* Yoast SEO - hide Yoast SEO menu & metabox when editing pages/posts
+* Yoast SEO - hide Yoast SEO settings menu (hide the SEO metabox when editing pages/posts by upgrading to Webmaster User Role Pro)
 
 == Screenshots ==
 
@@ -41,6 +41,9 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the UI
 
 == Changelog ==
+= v 1.3.1 =
+* Show Yoast metabox when editing pages (still hide settings) by default
+
 = v 1.3 =
 * Hide Users menu (often requested, and really the webmaster user couldn't do much in this screen anyway)
 * Add support for ACF5 (hide Custom Fields Menu compatible with new version)
