@@ -30,7 +30,7 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Sucuri Scanner (Sucuri) - hide security scan information
 * TablePress - Show/Edit/Import/Export TablePress content (all tabs except plugin options)
 * Ultimate Branding (WPMU Dev) - hide branding menu
-* Yoast SEO - hide Yoast SEO settings menu (hide the SEO metabox when editing pages/posts by upgrading to Webmaster User Role Pro)
+* Yoast SEO - hide Yoast SEO settings menu (also hide the SEO metabox when editing pages/posts by upgrading to Webmaster User Role Pro)
 
 == Screenshots ==
 
