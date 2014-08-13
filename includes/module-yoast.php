@@ -34,7 +34,7 @@ class TDWUR_Yoast {
 					),
 					
 					'default'   => array(
-						'yoast_post_metabox' => '0',
+						'yoast_post_metabox' => '1',
 						'yoast_settings' => '0',
 					)
 				),
@@ -50,7 +50,7 @@ class TDWUR_Yoast {
 		if ( empty( $GLOBALS['wpseo_metabox'] ) ) return;
 
 		global $webmaster_user_role_config;
-		if ( empty ( $webmaster_user_role_config['webmaster_yoast_metabox_settings']['yoast_post_metabox'] ) ) {
+		if ( isset( $webmaster_user_role_config['webmaster_yoast_metabox_settings']['yoast_post_metabox'] ) && empty ( $webmaster_user_role_config['webmaster_yoast_metabox_settings']['yoast_post_metabox'] ) ) {
 			remove_action( 'add_meta_boxes', array( $GLOBALS['wpseo_metabox'], 'add_meta_box' ) );
 			remove_action( 'admin_enqueue_scripts', array( $GLOBALS['wpseo_metabox'], 'enqueue' ) );
 			remove_action( 'wp_insert_post', array( $GLOBALS['wpseo_metabox'], 'save_postdata' ) );
