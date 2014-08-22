@@ -32,13 +32,20 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 * Ultimate Branding (WPMU Dev) - hide branding menu
 * Yoast SEO - hide Yoast SEO settings menu (also hide the SEO metabox when editing pages/posts by upgrading to Webmaster User Role Pro)
 
+[Upgrade to the Pro version](http://tylerdigital.com/products/webmaster-user-role/) of this plugin to get a settings panel to customize the admin dashboard specifically for your client:
+
+[Learn more about the Webmaster User Role Pro](http://tylerdigital.com/products/webmaster-user-role/)
+
 == Screenshots ==
 
 1. Adds a role to fit nicely between Administrator and Editor
 2. Easily remove administrative menu items, while leaving content-related items like Menus and Wigets
+3. Gravity Forms Settings (Pro version only)
+4. Yoast SEO Settings (Pro version only)
+5. Appearance/Themes Settings (Pro version only)
 
 == Installation ==
-Install and activate, there are no settings in the UI
+Install and activate, there are no settings in the free version of this plugin. Webmaster User Role is built with a carefully chosen set of permissions intended for the majority of clients. There are many free options available for further tweaking user permissions or editing the admin menu. We also have a [Pro version](http://tylerdigital.com/products/webmaster-user-role/) that makes it easy to customize for your clients.
 
 == Changelog ==
 = v 1.3.1 =
