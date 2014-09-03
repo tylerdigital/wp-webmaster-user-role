@@ -1,6 +1,6 @@
 === Webmaster User Role ===
 Contributors: tylerdigital, croixhaug
-Tags: admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
+Tags: client, clients, restrict access, access, admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
 Tested up to: 3.9.2
 Stable tag: 1.3.1
