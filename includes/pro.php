@@ -352,34 +352,6 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			);
 
 			$this->sections[] = array(
-				'icon'      => 'wp-menu-image users',
-				'title'     => __('Users', 'webmaster-user-role'),
-				'fields'    => array(
-					array(
-						'id'        => 'webmaster_caps_users',
-						'type'      => 'checkbox',
-						'title'     => __('User Capabilities', 'redux-framework-demo'),
-						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
-
-						'options'   => array(
-							'list_users' => 'List Users',
-							'create_users' => 'Create Users',
-							'edit_users' => 'Edit Users',
-							'delete_users' => 'Delete Users',
-						),
-						
-						'default'   => array(
-							'list_users' => '0',
-							'create_users' => '0',
-							'edit_users' => '0',
-							'delete_users' => '0',
-						)
-					),
-
-				)
-			);
-
-			$this->sections[] = array(
 				'icon'      => 'wp-menu-image tools',
 				'title'     => __('Tools & Settings', 'webmaster-user-role'),
 				'fields'    => array(
@@ -403,9 +375,9 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				)
 			);
 
-			$this->sections[] = array(
-				'type' => 'divide',
-			);
+			// $this->sections[] = array(
+			// 	'type' => 'divide',
+			// );
 
 			if ( class_exists( 'GFForms' ) ) {
 
