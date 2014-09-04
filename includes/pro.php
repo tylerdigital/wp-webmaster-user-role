@@ -534,7 +534,7 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				'opt_name'          => 'webmaster_user_role_config',            // This is where your data is stored in the database and also becomes your global variable name.
 				'display_name'      => TD_WebmasterUserRole::name,     // Name that appears at the top of your panel
 				'display_version'   => TD_WebmasterUserRole::version,  // Version that appears at the top of your panel
-				'menu_type'         => 'submenu',                  //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
+				'menu_type'         => ( is_multisite() ) ? 'menu' : 'submenu',	//Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
 				'allow_sub_menu'    => true,                    // Show the sections below the admin menu item or not
 				'menu_title'        => __(TD_WebmasterUserRole::name, 'webmaster-user-role'),
 				'page_title'        => __('Webmaster User Role Settings', 'webmaster-user-role'),
@@ -569,7 +569,8 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 				// 'footer_credit'     => '',                   // Disable the footer credit of Redux. Please leave if you can help it.
 				
 				// FUTURE -> Not in use yet, but reserved or partially implemented. Use at your own risk.
-				'database'              => '', // possible: options, theme_mods, theme_mods_expanded, transient. Not fully functional, warning!
+				'database'              => 'network', // possible: options, theme_mods, theme_mods_expanded, transient. Not fully functional, warning!
+				'network_admin' 		=> true,
 				'system_info'           => false, // REMOVE
 
 				// HINTS
