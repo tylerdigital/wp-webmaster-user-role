@@ -258,6 +258,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			if ( $this->current_user_is_webmaster() ) {
 				global $webmaster_user_role_config;
 				remove_menu_page( 'branding' );
+				if ( is_object( $webmaster_user_role_config ) && empty( $webmaster_user_role_config->sections ) ) return;
+
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['options-general.php'] ) ) remove_menu_page( 'options-general.php' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_sucuri']['sucuriscan'] ) ) remove_menu_page( 'sucuriscan' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['tools.php'] ) ) remove_menu_page( 'tools.php' );
