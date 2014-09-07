@@ -179,7 +179,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
 
 			if ( is_multisite() ) {
-				$capabilities['administrator'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
+				$capabilities['administrator'] = 1;
 				$capabilities['level_10'] = 1;
 			}
 
