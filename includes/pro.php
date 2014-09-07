@@ -85,6 +85,8 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 		}
 
 		public function initSettings() {
+			if ( is_multisite() && !is_network_admin() ) return;
+
 			// Just for demo purposes. Not needed per say.
 			$this->theme = wp_get_theme();
 
