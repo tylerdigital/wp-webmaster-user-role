@@ -65,7 +65,7 @@ class TDWUR_Yoast {
 		if ( !TD_WebmasterUserRole::current_user_is_webmaster() ) return;
 
 		global $webmaster_user_role_config;
-		if ( empty ( $webmaster_user_role_config['webmaster_yoast_metabox_settings']['yoast_settings'] ) ) {
+		if ( is_array( $webmaster_user_role_config ) && empty ( $webmaster_user_role_config['webmaster_yoast_metabox_settings']['yoast_settings'] ) ) {
 			remove_menu_page( 'wpseo_dashboard' );
 		}
 	}
