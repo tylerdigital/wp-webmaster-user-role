@@ -12,7 +12,7 @@ if ( !class_exists( 'TD_WebmasterUserRolePro' ) ) {
 		function update_caps() { 
 			global $webmaster_user_role_config;
 			$last_caps_update = get_site_option( 'td-webmaster-last-caps-update' );
-			if( $last_caps_update != $webmaster_user_role_config['REDUX_last_saved'] ) {
+			if( is_array( $webmaster_user_role_config ) && $last_caps_update != $webmaster_user_role_config['REDUX_last_saved'] ) {
 				$this->parent->deactivate( false );
 				$this->parent->activate( false );
 				update_site_option( 'td-webmaster-last-caps-update', $webmaster_user_role_config['REDUX_last_saved'] );
@@ -85,7 +85,6 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 		}
 
 		public function initSettings() {
-
 			// Just for demo purposes. Not needed per say.
 			$this->theme = wp_get_theme();
 
