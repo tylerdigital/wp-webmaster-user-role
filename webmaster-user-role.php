@@ -71,7 +71,13 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
 
-			/* Load Modules */
+			/* Load Core Modules */
+			include_once( dirname( __FILE__ ). '/includes/module-users.php' );
+			new TDWUR_Users( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-plugins.php' );
+			new TDWUR_Plugins( $this );
+
+			/* Load 3rd Party Modules */
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
 			new TDWUR_Cf7( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-itsec.php' );
@@ -165,6 +171,11 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			// $capabilities['manage_woocommerce'] = 0;
 
 			$capabilities['editor'] = 1; // Needed for 3rd party plugins that check explicitly for the "editor" role (looking at you NextGen Gallery)
+
+			if ( is_multisite() ) {
+				$capabilities['administrator'] = 1;
+				$capabilities['level_10'] = 1;
+			}
 
 			$capabilities = apply_filters( 'td_webmaster_capabilities', $capabilities );
 			return $capabilities;
