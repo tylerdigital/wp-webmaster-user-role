@@ -293,36 +293,6 @@ if (!class_exists('Redux_Webmaster_User_Role_Config')) {
 			// ACTUAL DECLARATION OF SECTIONS
 
 			$this->sections[] = array(
-				'icon'      => 'wp-menu-image themes',
-				'title'     => __('Themes', 'webmaster-user-role'),
-				'fields'    => array(
-					array(
-						'id'        => 'webmaster_caps_themes',
-						'type'      => 'checkbox',
-						'title'     => __('Theme Capabilities', 'redux-framework-demo'),
-						'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
-
-						'options'   => array(
-							'install_themes' => 'Install Themes',
-							'update_themes' => 'Update Themes',
-							'switch_themes' => 'Switch Active Theme',
-							'edit_themes' => 'Edit Themes',
-							'delete_themes' => 'Delete Themes',
-						),
-						
-						'default'   => array(
-							'install_themes' => '0',
-							'update_themes' => '0',
-							'switch_themes' => '0',
-							'edit_themes' => '0',
-							'delete_themes' => '0',
-						)
-					),
-
-				)
-			);
-
-			$this->sections[] = array(
 				'icon'      => 'wp-menu-image tools',
 				'title'     => __('Tools & Settings', 'webmaster-user-role'),
 				'fields'    => array(
