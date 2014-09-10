@@ -84,6 +84,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			new TDWUR_Users( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-plugins.php' );
 			new TDWUR_Plugins( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-themes.php' );
+			new TDWUR_Themes( $this );
 
 			/* Load 3rd Party Modules */
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
