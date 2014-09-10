@@ -6,7 +6,7 @@ class TDWUR_Plugins {
 	function __construct( $parent ) {
 		$this->parent = $parent;
 
-		add_filter( 'redux/options/webmaster_plugin_role_config/sections', array( $this, 'settings_section' ) );
+		add_filter( 'redux/options/webmaster_user_role_config/sections', array( $this, 'settings_section' ) );
 		// add_filter( 'td_webmaster_capabilities', array( $this, 'capabilities' ) );
 	}
 
@@ -25,7 +25,7 @@ class TDWUR_Plugins {
 					'id'        => 'webmaster_caps_plugins',
 					'type'      => 'checkbox',
 					'title'     => __('Plugin Capabilities', 'redux-framework-demo'),
-					'subtitle'  => __('Webmaster plugins can', 'redux-framework-demo'),
+					'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
 
 					'options'   => array(
 						'install_plugins' => 'Install Plugins',
