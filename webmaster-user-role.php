@@ -80,12 +80,14 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			new TD_WebmasterUserRoleUpdater( $this );
 
 			/* Load Core Modules */
-			include_once( dirname( __FILE__ ). '/includes/module-users.php' );
-			new TDWUR_Users( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-plugins.php' );
 			new TDWUR_Plugins( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-themes.php' );
 			new TDWUR_Themes( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-users.php' );
+			new TDWUR_Users( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-tools.php' );
+			new TDWUR_Tools( $this );
 
 			/* Load 3rd Party Modules */
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
