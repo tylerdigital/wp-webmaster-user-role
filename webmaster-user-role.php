@@ -66,6 +66,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
 			add_action( 'admin_menu', array( &$this, 'admin_menu' ), 999 );
 			add_action( 'admin_init', array( &$this, 'create_role_if_missing' ), 10 );
+			add_action( 'admin_init', array( &$this, 'prevent_network_admin_access' ), 10 );
 			add_action( 'admin_init', array( &$this, 'cleanup_dashboard_widgets' ), 20 );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
 			if( $site_version!=self::version ) {
@@ -247,6 +248,13 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 			$this->deactivate( false );
 			$this->activate( false );
+		}
+
+		function prevent_network_admin_access() {
+			if ( is_network_admin() && !is_super_admin( get_current_user_id() ) ) {
+				wp_redirect( admin_url( ) );
+				exit();
+			}
 		}
 
 		function cleanup_dashboard_widgets() {
