@@ -67,8 +67,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			add_action( 'admin_init', array( &$this, 'cleanup_dashboard_widgets' ), 20 );
 			$site_version = get_site_option( 'td-webmaster-user-role-version' );
 			if( $site_version!=self::version ) {
-				$this->deactivate( false );
-				$this->activate( false );
+				$this->deactivate( is_multisite() );
+				$this->activate( is_multisite() );
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
 
@@ -229,8 +229,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			$wp_roles = new WP_Roles();
 			if ( $wp_roles->is_role( 'webmaster' ) ) return;
 
-			$this->deactivate( false );
-			$this->activate( false );
+			$this->deactivate( is_multisite() );
+			$this->activate( is_multisite() );
 		}
 
 		function prevent_network_admin_access() {
@@ -271,15 +271,15 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 
 		function updated_option( $option, $oldvalue, $newValue ) {
 			if ( $option=='role_display_name' || strpos( 'cap_', $option )!==false ) {
-				$this->deactivate( false );
-				$this->activate( false );
+				$this->deactivate( is_multisite() );
+				$this->activate( is_multisite() );
 			}
 		}
 
 		function deleted_option( $option ) {
 			if ( $option=='role_display_name' || strpos( 'cap_', $option )!==false ) {
-				$this->deactivate( false );
-				$this->activate( false );
+				$this->deactivate( is_multisite() );
+				$this->activate( is_multisite() );
 			}
 		}
 
