@@ -47,7 +47,14 @@ class TDWUR_Themes {
 		);
 
 		if ( is_multisite() ) {
+			$this->section['fields']['0']['options'] = array(
+				'switch_themes' => 'Switch Active Theme',
+			);
 
+			$this->section['fields']['0']['desc'] = '
+				<p><strong>Notes for Multisite:</strong></p>
+				<p>WordPress core code only allows designated "Super Admins" to manage themes for the entire network</p>
+				<p>Blog/Site admins can only activate/deactivate themes installed by the network administrator</p>';
 		}
 
 		$sections[] = $this->section;
@@ -58,7 +65,11 @@ class TDWUR_Themes {
 	
 
 	function capabilities( $capabilities ) {
-		global $webmaster_plugin_role_config;
+		global $webmaster_user_role_config;
+
+		// if ( is_multisite() ) {
+		// 	$capabilities['manage_network_themes'] = 0;// (int)$webmaster_user_role_config['webmaster_caps_plugins']['activate_plugins'];
+		// }
 
 		return $capabilities;
 	}
