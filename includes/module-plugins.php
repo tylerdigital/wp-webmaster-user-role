@@ -7,7 +7,7 @@ class TDWUR_Plugins {
 		$this->parent = $parent;
 
 		add_filter( 'redux/options/webmaster_user_role_config/sections', array( $this, 'settings_section' ) );
-		// add_filter( 'td_webmaster_capabilities', array( $this, 'capabilities' ) );
+		add_filter( 'td_webmaster_capabilities', array( $this, 'capabilities' ) );
 	}
 
 	function is_active() {
@@ -47,7 +47,14 @@ class TDWUR_Plugins {
 		);
 
 		if ( is_multisite() ) {
+			$this->section['fields']['0']['options'] = array(
+				'activate_plugins' => 'Activate/Deactivate Plugins',
+			);
 
+			$this->section['fields']['0']['desc'] = '
+			<p><strong>Notes for Multisite:</strong></p>
+			<p>WordPress core code only allows designated "Super Admins" to manage plugins for the entire network</p>
+			<p>Blog/Site admins can only activate/deactivate plugins installed by the network administrator</p>';
 		}
 
 		$sections[] = $this->section;
@@ -58,7 +65,11 @@ class TDWUR_Plugins {
 	
 
 	function capabilities( $capabilities ) {
-		global $webmaster_plugin_role_config;
+		global $webmaster_user_role_config;
+
+		if ( is_multisite() ) {
+			$capabilities['manage_network_plugins'] = (int)$webmaster_user_role_config['webmaster_caps_plugins']['activate_plugins'];
+		}
 
 		return $capabilities;
 	}
