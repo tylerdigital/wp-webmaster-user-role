@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Webmaster User Role Pro
+Plugin Name: Webmaster User Role
 Plugin URI: http://tylerdigital.com/products/webmaster-user-role/
 Description: Adds a Webmaster user role between Administrator and Editor.  By default this user is the same as Administrator, without the capability to manage plugins or change themes
 Version: 1.3.1
@@ -75,8 +75,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				update_site_option( 'td-webmaster-user-role-version', self::version );
 			}
 
-			require_once( dirname( __FILE__ ). '/includes/pro.php' );
-			$this->pro = new TD_WebmasterUserRolePro( $this );
 			require_once( dirname( __FILE__ ). '/includes/updater.php' );
 			new TD_WebmasterUserRoleUpdater( $this );
 
@@ -93,6 +91,10 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			/* Load 3rd Party Modules */
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
 			new TDWUR_Cf7( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-event-espresso.php' );
+			new TDWUR_Event_Espresso( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-events-calendar.php' );
+			new TDWUR_Events_Calendar( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-itsec.php' );
 			new TDWUR_Itsec( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
