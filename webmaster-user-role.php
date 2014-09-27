@@ -95,6 +95,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			new TDWUR_Event_Espresso( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-events-calendar.php' );
 			new TDWUR_Events_Calendar( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-gravity-forms.php' );
+			new TDWUR_Gravity_Forms( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-itsec.php' );
 			new TDWUR_Itsec( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
