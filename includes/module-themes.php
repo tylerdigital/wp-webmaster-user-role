@@ -24,10 +24,11 @@ class TDWUR_Themes {
 				array(
 					'id'        => 'webmaster_caps_themes',
 					'type'      => 'checkbox',
-					'title'     => __('Theme Capabilities', 'redux-framework-demo'),
-					'subtitle'  => __('Webmaster users can', 'redux-framework-demo'),
+					'title'     => __('Theme Capabilities', 'webmaster-user-role'),
+					'subtitle'  => __('Webmaster users can', 'webmaster-user-role'),
 
 					'options'   => array(
+						'edit_theme_options' => 'Manage Theme, Widgets, Menus, and Customizer',
 						'install_themes' => 'Install Themes',
 						'update_themes' => 'Update Themes',
 						'switch_themes' => 'Switch Active Theme',
@@ -36,6 +37,7 @@ class TDWUR_Themes {
 					),
 
 					'default'   => array(
+						'edit_theme_options' => '1',
 						'install_themes' => '0',
 						'update_themes' => '0',
 						'switch_themes' => '0',
@@ -45,6 +47,14 @@ class TDWUR_Themes {
 				),
 			)
 		);
+
+		$supported_theme = apply_filters( 'webmaster_supported_theme', false );
+		if ( $supported_theme ) {
+			$supported_theme_setting_fields = apply_filters( 'webmaster_supported_theme_setting_fields', array() );
+			$this->section['fields'] = array_merge( $this->section['fields'], $supported_theme_setting_fields );
+		} else {
+			$this->add_unsupported_theme_settings_fields();
+		}
 
 		if ( is_multisite() ) {
 			$this->section['fields']['0']['options'] = array(
@@ -62,7 +72,31 @@ class TDWUR_Themes {
 		return $sections;
 	}
 
-	
+	function add_unsupported_theme_settings_fields() {
+		$this->section['fields'][] = array(
+			'id'        => 'unsupported_theme_settings',
+			'type'      => 'checkbox',
+			'title'     => __('3rd Party Theme Compatibility', 'webmaster-user-role'),
+			'subtitle'  => __('Webmaster users can', 'webmaster-user-role'),
+
+			'options'   => array(
+				'access_theme_options_panel' => 'Access Theme Options panel (see notes)',
+			),
+			'desc' 		=> __(
+				'<p><strong>Note: Your theme is not specifically supported, but it can be!</strong></p>
+				 <p>Many themes create custom panels for Theme Options. Unfortunately each theme is different and requires a custom integration.</p>
+				 <p>If you\'d like to see your theme supported, please <strong>email us at <a href="mailto:support@tylerdigital.com">support@tylerdigital.com</a></strong>
+				 and we\'ll be happy to add support for it!</p>
+				 <p><strong>On unsupported themes, this checkbox will try to control access to the Theme Options panel,
+				 but in most cases you will need to submit a support request to add support for your theme.</strong></p>',
+				 'webmaster-user-role'
+			),
+
+			'default'   => array(
+				'access_theme_options_panel' => '0',
+			)
+		);
+	}
 
 	function capabilities( $capabilities ) {
 		global $webmaster_user_role_config;
