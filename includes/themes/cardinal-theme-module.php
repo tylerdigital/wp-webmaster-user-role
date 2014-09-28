@@ -1,5 +1,5 @@
 <?php
-class TDWUR_Total_Theme {
+class TDWUR_Cardinal_Theme {
 	private $active;
 
 	function __construct() {
@@ -12,7 +12,7 @@ class TDWUR_Total_Theme {
 
 	function is_supported_theme( $supported ) {
 		if ( $supported ) return $supported;
-		
+
 		return $this->is_active();
 	}
 
@@ -20,7 +20,7 @@ class TDWUR_Total_Theme {
 		if ( $this->active ) return true;
 
 		$current_theme = wp_get_theme();
-		if ( $current_theme->Name=='Total' || $current_theme->Template=='Total' ) {
+		if ( $current_theme->Name=='cardinal' || $current_theme->Template=='cardinal' ) {
 			$this->active = true;
 			add_action( 'admin_menu', array( $this, 'admin_menu' ), 100 );
 
@@ -35,9 +35,9 @@ class TDWUR_Total_Theme {
 
 		$fields = array();
 		$fields[] = array(
-			'id'        => 'total_theme_settings',
+			'id'        => 'cardinal_theme_settings',
 			'type'      => 'checkbox',
-			'title'     => __('Total Theme Compatibility', 'webmaster-user-role'),
+			'title'     => __('Cardinal Theme Compatibility', 'webmaster-user-role'),
 			'subtitle'  => __('Webmaster users can', 'webmaster-user-role'),
 
 			'options'   => array(
@@ -56,8 +56,8 @@ class TDWUR_Total_Theme {
 		global $webmaster_user_role_config;
 		if ( !is_array( $webmaster_user_role_config ) ) return;
 
-		if ( empty( $webmaster_user_role_config['total_theme_settings']['access_theme_options_panel'] ) ) remove_menu_page( 'wpex_options' );
+		if ( empty( $webmaster_user_role_config['cardinal_theme_settings']['access_theme_options_panel'] ) ) remove_menu_page( '_sf_options' );
 	}
 
 }
-new TDWUR_Total_Theme();
+new TDWUR_Cardinal_Theme();
