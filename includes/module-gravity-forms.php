@@ -116,6 +116,24 @@ class TDWUR_Gravity_Forms {
 				)
 			);
 		}
+		
+		/* Zapier Add-On */
+		if ( class_exists( 'GFZapier' ) ) {
+			$this->section['fields'][] = array(
+				'id'        => 'webmaster_caps_gravityforms_zapier',
+				'type'      => 'checkbox',
+				'title'     => __( 'Zapier Add-On', 'redux-framework-demo' ),
+				'subtitle'  => __( 'Webmaster users can', 'redux-framework-demo' ),
+
+				'options'   => array(
+					'gravityforms_zapier' => 'Manage Zapier Settings',
+				),
+
+				'default'   => array(
+					'gravityforms_zapier' => '0',
+				)
+			);
+		}
 
 		/* User Registration Add-On */
 		if ( class_exists( 'GFUser' ) ) {
