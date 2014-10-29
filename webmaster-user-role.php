@@ -99,6 +99,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			new TDWUR_Gravity_Forms( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-itsec.php' );
 			new TDWUR_Itsec( $this );
+			include_once( dirname( __FILE__ ). '/includes/module-wpai.php' );
+			new TDWUR_WPAI( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-yoast.php' );
 			new TDWUR_Yoast( $this );
 		} // end constructor
