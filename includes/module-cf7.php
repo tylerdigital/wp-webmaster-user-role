@@ -55,6 +55,7 @@ class TDWUR_Cf7 {
 		if ( empty( $this->section['fields']['0']['default'] ) ) return $meta_caps;
 		if ( !TD_WebmasterUserRole::current_user_is_webmaster() ) return $meta_caps;
 		global $webmaster_user_role_config;
+		if ( !is_array( $webmaster_user_role_config ) ) return $meta_caps;
 		if ( !isset( $webmaster_user_role_config['webmaster_caps_cf7'] ) ) return $meta_caps;
 		if ( !$this->is_active() ) return $meta_caps;
 		
