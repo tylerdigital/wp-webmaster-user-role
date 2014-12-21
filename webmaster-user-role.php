@@ -89,6 +89,8 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			new TDWUR_Tools( $this );
 
 			/* Load 3rd Party Modules */
+			include_once( dirname( __FILE__ ). '/includes/module-acf.php' );
+			new TDWUR_ACF( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-cf7.php' );
 			new TDWUR_Cf7( $this );
 			include_once( dirname( __FILE__ ). '/includes/module-event-espresso.php' );
@@ -285,8 +287,6 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['options-general.php'] ) ) remove_menu_page( 'options-general.php' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_sucuri']['sucuriscan'] ) ) remove_menu_page( 'sucuriscan' );
 				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_tools_settings']['tools.php'] ) ) remove_menu_page( 'tools.php' );
-				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_acf']['acf'] ) ) remove_menu_page( 'edit.php?post_type=acf' );
-				if ( empty ( $webmaster_user_role_config['webmaster_admin_menu_acf']['acf'] ) ) remove_menu_page( 'edit.php?post_type=acf-field-group' );
 			}
 		}
 
