@@ -8,6 +8,7 @@ class TDWUR_Users {
 
 		add_filter( 'redux/options/webmaster_user_role_config/sections', array( $this, 'settings_section' ) );
 		add_filter( 'td_webmaster_capabilities', array( $this, 'capabilities' ) );
+		add_filter( 'editable_roles' , array( $this, 'remove_adminstrator_from_editable_roles' ) );
 	}
 
 	function is_active() {
@@ -67,7 +68,14 @@ class TDWUR_Users {
 		return $sections;
 	}
 
-	
+	function remove_adminstrator_from_editable_roles( $roles ){
+		if ( !TD_WebmasterUserRole::current_user_is_webmaster() ) return $roles;
+
+		if ( isset( $roles['administrator'] ) ){
+			unset( $roles['administrator'] );
+		}
+		return $roles;
+	}
 
 	function capabilities( $capabilities ) {
 		global $webmaster_user_role_config;
