@@ -393,13 +393,11 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			SELECT blog_id
 			FROM {$wpdb->blogs}
 			WHERE site_id = %d
-			AND blog_id <> %d
 			AND spam = '0'
 			AND deleted = '0'
 			AND archived = '0'
 			ORDER BY registered DESC
-			LIMIT %d, 5
-		", $wpdb->siteid, $wpdb->blogid, $offset ) );
+		", $wpdb->siteid ) );
 
 			return $blogs;
 		}
