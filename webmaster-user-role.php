@@ -60,7 +60,7 @@ if ( !class_exists( 'TD_WebmasterUserRole' ) ) {
 			load_plugin_textdomain( 'td-webmaster-user-role', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 			// Load JavaScript and stylesheets
-			$this->register_scripts_and_styles();
+	    	add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts_and_styles' ), 11 );
 			add_action( 'wpmu_new_blog', array( $this, 'add_role_to_blog' ) );
 			add_action( 'updated_'.self::slug.'_option', array( $this, 'updated_option' ), 10, 3 );
 			add_action( 'deleted_'.self::slug.'_option', array( $this, 'deleted_option' ) );
