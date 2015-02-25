@@ -90,7 +90,7 @@ class TDWUR_Events_Calendar {
 
 	function capabilities( $capabilities ) {
 		global $webmaster_user_role_config;
-		if ( !is_array( $webmaster_user_role_config ) ) return;
+		if ( !is_array( $webmaster_user_role_config ) ) return $capabilities;
 
 		/* Fill in events caps */
 		$capabilities['read_tribe_event'] = (int)$webmaster_user_role_config['webmaster_events_calendar_events_settings']['edit_tribe_event'];

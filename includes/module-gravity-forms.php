@@ -160,7 +160,7 @@ class TDWUR_Gravity_Forms {
 
 	function capabilities( $capabilities ) {
 		global $webmaster_user_role_config;
-		if ( !is_array( $webmaster_user_role_config ) ) return;
+		if ( !is_array( $webmaster_user_role_config ) ) return $capabilities;
 
 		$capabilities['gravityforms_mailchimp_uninstall'] = (int)$webmaster_user_role_config['webmaster_caps_gravityforms_mailchimp']['gravityforms_mailchimp'];
 
