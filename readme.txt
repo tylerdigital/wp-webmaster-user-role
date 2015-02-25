@@ -2,8 +2,8 @@
 Contributors: tylerdigital, croixhaug
 Tags: client, clients, restrict access, access, admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.3.1
+Tested up to: 4.1.1
+Stable tag: 1.3.2
 
 Adds a new "Admin" user role between Administrator and Editor. Perfect for clients and those who know just enough to be dangerous.
 
@@ -48,6 +48,11 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the free version of this plugin. Webmaster User Role is built with a carefully chosen set of permissions intended for the majority of clients. There are many free options available for further tweaking user permissions or editing the admin menu. We also have a [Pro version](http://tylerdigital.com/products/webmaster-user-role/) that makes it easy to customize for your clients.
 
 == Changelog ==
+= v 1.3.2 =
+* Improve support for new Gravity Forms version
+* Fix register_scripts_and_styles PHP warning
+* Fix potential issue with webmaster user being given no access permissions
+
 = v 1.3.1 =
 * Show Yoast metabox when editing pages (still hide settings) by default
 
