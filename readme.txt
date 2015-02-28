@@ -34,6 +34,8 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 
 [Upgrade to the Pro version](http://tylerdigital.com/products/webmaster-user-role/) of this plugin to get a settings panel to customize the admin dashboard specifically for your client:
 
+[vimeo https://vimeo.com/120633286]
+
 [Learn more about Webmaster User Role Pro](http://tylerdigital.com/products/webmaster-user-role/)
 
 == Screenshots ==
