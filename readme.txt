@@ -2,7 +2,7 @@
 Contributors: tylerdigital, croixhaug
 Tags: client, clients, restrict access, access, admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
