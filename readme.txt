@@ -2,8 +2,8 @@
 Contributors: tylerdigital, croixhaug
 Tags: client, clients, restrict access, access, admin, users, webmaster, capabilities, administrator, editor, permissions, roles, user roles
 Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: 1.3.2
+Tested up to: 4.3.1
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ This plugin creates a new role named "Admin" that is the same as "Administrator"
 Install and activate, there are no settings in the free version of this plugin. Webmaster User Role is built with a carefully chosen set of permissions intended for the majority of clients. There are many free options available for further tweaking user permissions or editing the admin menu. We also have a [Pro version](http://tylerdigital.com/products/webmaster-user-role/) that makes it easy to customize for your clients.
 
 == Changelog ==
+
+= 1.3.3 =
+* Fixed: members_get_capabilities() conflict with Members plugin
 
 = 1.3.2 =
 * Improved: Improve support for new Gravity Forms version
