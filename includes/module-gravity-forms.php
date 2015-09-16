@@ -12,7 +12,6 @@ class TDWUR_Gravity_Forms {
 		// add_filter( 'td_webmaster_capabilities', array( $this, 'default_capabilities' ), 2 );
 		add_filter( 'td_webmaster_capabilities', array( $this, 'capabilities' ) );
 
-		add_action( 'init', array( $this, 'expose_gf_addon_caps' ), 999 );
 		add_action( 'admin_footer', array( $this, 'admin_footer' ) );
 	}
 
@@ -165,14 +164,6 @@ class TDWUR_Gravity_Forms {
 		$capabilities['gravityforms_mailchimp_uninstall'] = (int)$webmaster_user_role_config['webmaster_caps_gravityforms_mailchimp']['gravityforms_mailchimp'];
 
 		return $capabilities;
-	}
-
-	function expose_gf_addon_caps() {
-		/* For some reason Gravity Forms only exposes capabilities for add-ons if the Members plugin is installed & available */
-		/* Loading an empty members_get_capabilities() function so Gravity Forms thinks it's activated */
-		if ( !function_exists( 'members_get_capabilities' ) ) {
-			function members_get_capabilities() {}
-		}
 	}
 
 	function admin_footer() {
